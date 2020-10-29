@@ -10,13 +10,14 @@ function App() {
     <div className="App">
       <Router>
         <div className="nav-container">
-          <Link to="/">
-            <figure>
-              <img alt="Breaking Bad logo" src={Logo} />
-            </figure>
-          </Link>
+          <p>Tema 🌙</p>
           <p>Buscador 🔍</p>
         </div>
+        <Link to="/">
+          <figure>
+            <img alt="Breaking Bad logo" src={Logo} />
+          </figure>
+        </Link>
         <Switch>
           <Route exact path="/">
             <Home />

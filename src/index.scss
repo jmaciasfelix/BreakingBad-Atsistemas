@@ -36,21 +36,18 @@ code {
 
 /** HOME **/
 .container-home {
-  a {
-    text-decoration: none;
-    color: white;
-    margin-top: 10rem;
-    font-size: 40px;
-    h2 {
-      border: 1px solid white;
-      width: 80%;
-      margin: 1.5rem auto;
-      padding: 1.5rem 0;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      &:hover {
-        background-color: var(--color-2);
-      }
+  margin-top: 4rem;
+  font-size: 40px;
+  h2 {
+    border: 1px solid white;
+    border-radius: 5rem;
+    width: 60%;
+    margin: 1.5rem auto;
+    padding: 1.5rem 0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--color-2);
     }
   }
 }
