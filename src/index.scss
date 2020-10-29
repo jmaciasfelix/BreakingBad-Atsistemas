@@ -36,11 +36,12 @@ code {
 
 /** HOME **/
 .container-home {
-  margin-top: 10rem;
+  margin-top: 4rem;
   font-size: 40px;
   h2 {
     border: 1px solid white;
-    width: 80%;
+    border-radius: 5rem;
+    width: 60%;
     margin: 1.5rem auto;
     padding: 1.5rem 0;
     transition: all 0.2s ease;

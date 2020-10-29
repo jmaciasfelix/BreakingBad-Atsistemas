@@ -9,18 +9,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    figure {
-      width: 114px;
-      margin: 0;
-      img {
-        object-fit: cover;
-        width: 100%;
-      }
-    }
-
     p {
-      font-size: 38px;
+      font-size: 24px;
+    }
+  }
+  figure {
+    width: 300px;
+    margin: 0 auto;
+    img {
+      object-fit: cover;
+      width: 100%;
     }
   }
 }
