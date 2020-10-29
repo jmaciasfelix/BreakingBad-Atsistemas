@@ -1,8 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+/*
+describe('NAME SUITE', () => {
+  test('should return XXXX if receive YYYY', () => {
+    const expected = 'XXXX';
+    const result = 'ZZZZ';
+    expect(result).toBe(expected);
+  });
+});
+*/
+describe('Test App.js', () => {
+  test('should return one if receive one', () => {
+    render(<App />);
+    const result = screen.getByText('App');
+    expect(result).toBeInTheDocument();
+  });
 });
