@@ -7,8 +7,13 @@ import { useTranslation } from 'react-i18next';
 //react-router-dom
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { SearchEngine } from 'components/SearchEngine';
+//redux
+//redux
+import { Provider } from 'react-redux';
+import { createStore } from 'store';
 
 function App() {
+  //TODO App no debe saber esto, quiero crear un componente
   const [t, i18n] = useTranslation('global');
   const handleLgn = () => {
     i18n.language === 'es'
@@ -16,30 +21,32 @@ function App() {
       : i18n.changeLanguage('es');
   };
   return (
-    <div className="App">
-      <Router>
-        <div className="nav-container">
-          <div>
-            <p>{t('nav.theme')}</p>
-            <label className="switch">
-              <input type="checkbox" onChange={handleLgn} />
-              <span className="slider round"></span>
-            </label>
+    <Provider store={createStore()}>
+      <div className="App">
+        <Router>
+          <div className="nav-container">
+            <div>
+              <p>{t('nav.theme')}</p>
+              <label className="switch">
+                <input type="checkbox" onChange={handleLgn} />
+                <span className="slider round"></span>
+              </label>
+            </div>
+            <SearchEngine />
           </div>
-          <SearchEngine />
-        </div>
-        <Link to="/">
-          <figure>
-            <img alt="Breaking Bad logo" src={Logo} />
-          </figure>
-        </Link>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+          <Link to="/">
+            <figure>
+              <img alt="Breaking Bad logo" src={Logo} />
+            </figure>
+          </Link>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </Provider>
   );
 }
 

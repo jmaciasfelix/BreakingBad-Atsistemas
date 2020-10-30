@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import "./Form.scss"
+import './Form.scss';
 //hooks
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 //services
 import { getInformationByFilter } from 'services/getInformationByFilter';
+//actions Redux
+import { searchLoading } from 'actions';
 
 export const Form = (props) => {
   const [t] = useTranslation('global');
+  const dispatch = useDispatch();
   const FILTER = [
     t('search-engine.filter.CHARACTER'),
     t('search-engine.filter.EPISODE'),
@@ -20,10 +24,12 @@ export const Form = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('handleSubmit Form search');
-    getInformationByFilter(searchValue, filter).then((response) =>
-      setResult(response[0])
-    );
+    // console.log('handleSubmit Form search');
+    // getInformationByFilter(searchValue, filter).then((response) =>
+    //   setResult(response[0])
+    // );
+    dispatch(searchLoading());
+    console.log(searchLoading());
   };
   const handleChangedFilter = (e) => {
     setFilter(e.target.value);
