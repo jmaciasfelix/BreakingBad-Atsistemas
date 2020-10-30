@@ -1,0 +1,26 @@
+.modal {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  .modal-content {
+    background: #111;
+    width: 600px;
+    padding: 10px 20px;
+    border-radius: 1.5rem;
+    height: 80vh;
+    margin: 10vh auto;
+    position: relative;
+    .btn {
+      font-size: 30px;
+      display: block;
+      background-color: transparent;
+      border-color: transparent;
+      margin: 14px 0;
+    }
+  }
+}

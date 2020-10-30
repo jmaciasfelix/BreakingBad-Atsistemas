@@ -6,6 +6,7 @@ import { Home } from 'pages/Home';
 import { useTranslation } from 'react-i18next';
 //react-router-dom
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { SearchEngine } from 'components/SearchEngine';
 
 function App() {
   const [t, i18n] = useTranslation('global');
@@ -25,7 +26,7 @@ function App() {
               <span className="slider round"></span>
             </label>
           </div>
-          <p>{t('nav.search')}</p>
+          <SearchEngine />
         </div>
         <Link to="/">
           <figure>
