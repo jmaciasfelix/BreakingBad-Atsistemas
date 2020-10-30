@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 import './Form.scss';
 //hooks
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-//services
-import { getInformationByFilter } from 'services/getInformationByFilter';
+import { useDispatch, useSelector } from 'react-redux';
 //actions Redux
 import { searchLoading } from 'actions';
+//components
+import { ResultSearch } from 'components/ResultSearch';
 
 export const Form = (props) => {
   const [t] = useTranslation('global');
-  const dispatch = useDispatch();
   const FILTER = [
     t('search-engine.filter.CHARACTER'),
     t('search-engine.filter.EPISODE'),
@@ -20,16 +19,14 @@ export const Form = (props) => {
   ];
   const [searchValue, setSearchValue] = useState('');
   const [filter, setFilter] = useState(FILTER[0]);
-  const [result, setResult] = useState();
+  const dispatch = useDispatch();
+  const storeSearch = useSelector((state) => state.searchReducer);
+  console.log(storeSearch);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log('handleSubmit Form search');
-    // getInformationByFilter(searchValue, filter).then((response) =>
-    //   setResult(response[0])
-    // );
-    dispatch(searchLoading());
-    console.log(searchLoading());
+    dispatch(searchLoading({ searchValue, filter }));
+    setSearchValue('');
   };
   const handleChangedFilter = (e) => {
     setFilter(e.target.value);
@@ -38,10 +35,13 @@ export const Form = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <button>{t('search-engine.submit')}</button>
+        <button disabled={storeSearch.loading}>
+          {t('search-engine.submit')}
+        </button>
         <input
           placeholder={t('search-engine.placeholder')}
           onChange={(e) => setSearchValue(e.target.value)}
+          disabled={storeSearch.loading}
           value={searchValue}
         />
         <select value={filter} onChange={handleChangedFilter}>
@@ -50,16 +50,10 @@ export const Form = (props) => {
             <option key={filter}>{filter}</option>
           ))}
         </select>
-        {result && (
-          <div>
-            <h3>{result.name}</h3>
-            <figure>
-              <img src={result.img} alt={result.name || ''} />
-            </figure>
-            <p>Nickname: {result.nickname}</p>
-          </div>
-        )}
       </form>
+      {
+        !storeSearch?.loading && <ResultSearch info={storeSearch.lastSearch} />
+      }
     </>
   );
 };

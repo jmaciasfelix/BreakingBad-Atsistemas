@@ -8,9 +8,10 @@ const SEARCH_LOADING = `${MODULE_ID}/SEARCH_LOADING`;
 const SEARCH_RESPONSE = `${MODULE_ID}/SEARCH_RESPONSE`;
 const SEARCH_ERROR = `${MODULE_ID}/SEARCH_ERROR`;
 
-const searchLoading = () => {
+const searchLoading = (data = {}) => {
   return {
     type: SEARCH_LOADING,
+    payload: data,
   };
 };
 const searchResponse = (data = {}) => {

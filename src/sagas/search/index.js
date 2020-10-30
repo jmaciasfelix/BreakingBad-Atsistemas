@@ -4,21 +4,29 @@ import { SEARCH_LOADING, SEARCH_RESPONSE, SEARCH_ERROR } from 'actions';
 import axios from 'axios';
 
 export default function* usersSaga() {
-  yield spawn(watchGetUserAsync);
+  yield spawn(watchSearchAsync);
 }
 
-function* watchGetUserAsync() {
+function* watchSearchAsync() {
   yield takeEvery(SEARCH_LOADING, getUsers);
 }
 
-function* getUsers() {
+//TODO
+const getEndpointByFilter = (filter, value) => {
+  console.log(`Endpoint dependiendo del filtro ${filter} value ${value}`);
+  return `https://www.breakingbadapi.com/api/characters?name=${value}`;
+};
+
+function* getUsers({ payload }) {
+  const ENDPOINT = getEndpointByFilter(payload.filter, payload.searchValue);
   try {
-    console.log('getUsers SAGA');
-    const ENDPOINT = 'https://reqres.in/api/users';
     const response = yield call(axios.get, ENDPOINT);
-    yield put({ type: SEARCH_RESPONSE, payload: response.data.data });
+    yield put({
+      type: SEARCH_RESPONSE,
+      payload: response.data[0],
+    });
   } catch (error) {
-    console.log('ha ocurrido un error en SAGA');
+    console.error(`ERROR getUsers SAGA: ${error}`);
     yield put({
       type: SEARCH_ERROR,
       payload: error.response.data,
