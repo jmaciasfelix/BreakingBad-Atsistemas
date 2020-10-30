@@ -1,22 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './ListOfCharacters.scss';
 import PropTypes from 'prop-types';
 //components
 import { Character } from '../Character';
-import { useDispatch, useSelector } from 'react-redux';
+import { useCharacters } from 'hooks/useCharacters';
 
-export const ListOfCharacters = ({ characters = [] }) => {
-  const dispatch = useDispatch();
-  const storeListCharacters = useSelector((state) => state.searchReducer);
+export const ListOfCharacters = () => {
+  const [loading, characters] = useCharacters();
 
-  useEffect(() => {
-    console.log('Me renderizo');
-  }, []);
-  
   return (
     <div className="ListOfCharacters">
-      {characters.map(() => (
-        <Character />
+      {characters && characters.map((character) => (
+        <Character
+          key={character.id}
+          name={character.name}
+          img={character.img}
+        />
       ))}
     </div>
   );

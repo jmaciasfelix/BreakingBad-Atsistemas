@@ -1,5 +1,5 @@
 /*
- * action types
+ * action Search
  */
 
 const MODULE_ID = '@SEARCH';
