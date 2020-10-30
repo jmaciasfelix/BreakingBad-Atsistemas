@@ -17,5 +17,8 @@
       "QUOTE": "Citas",
       "KILLER": "Asesino"
     }
+  },
+  "charactersPage": {
+    "title": "Listado de personajes"
   }
 }

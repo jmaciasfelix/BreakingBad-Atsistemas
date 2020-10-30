@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 //hooks
 import { useTranslation } from 'react-i18next';
 
-export const Home = () => {
+export const HomePage = () => {
   const [t] = useTranslation('global');
   return (
     <>
-      <div className="container-home">
+      <section className="container-home">
         <Link to={`temporadas`}>
           <h2>{t('home.seasons')}</h2>
         </Link>
@@ -18,7 +18,7 @@ export const Home = () => {
         <Link to={`asesinos`}>
           <h2>{t('home.killer')}</h2>
         </Link>
-      </div>
+      </section>
     </>
   );
 };

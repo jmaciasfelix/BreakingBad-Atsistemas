@@ -1,7 +1,8 @@
 import './App.scss';
 import Logo from './logo.png';
-//component
-import { Home } from 'pages/Home';
+//pages
+import { HomePage, CharactersPage } from 'pages';
+
 //hooks
 import { useTranslation } from 'react-i18next';
 //react-router-dom
@@ -34,14 +35,17 @@ function App() {
             </div>
             <SearchEngine />
           </div>
-          <Link to="/">
-            <figure>
+          <figure>
+            <Link to="/">
               <img alt="Breaking Bad logo" src={Logo} />
-            </figure>
-          </Link>
+            </Link>
+          </figure>
           <Switch>
             <Route exact path="/">
-              <Home />
+              <HomePage />
+            </Route>
+            <Route exact path="/personajes">
+              <CharactersPage />
             </Route>
           </Switch>
         </Router>

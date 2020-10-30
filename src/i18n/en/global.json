@@ -17,5 +17,8 @@
         "QUOTE": "Quote",
         "KILLER": "Killer"
       }
+    },
+    "charactersPage":{
+      "title": "List of characters"
     }
   }
