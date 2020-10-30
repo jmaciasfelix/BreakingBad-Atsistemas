@@ -1,27 +1,35 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+//hooks
+import { useTranslation } from 'react-i18next';
 //services
-import { getCharacter } from 'services/getCharacter';
+import { getInformationByFilter } from 'services/getInformationByFilter';
 
 export const Form = (props) => {
-  const FILTER = ['Personaje', 'Cita', 'Episodio', 'Asesino'];
+  const [t] = useTranslation('global');
+  const FILTER = [
+    t('search-engine.filter.CHARACTER'),
+    t('search-engine.filter.EPISODE'),
+    t('search-engine.filter.QUOTE'),
+    t('search-engine.filter.KILLER'),
+  ];
   const [searchValue, setSearchValue] = useState('');
   const [filter, setFilter] = useState(FILTER[0]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('handleSubmit Form search');
-    getCharacter('Walter');
+    getInformationByFilter('Walter', filter);
   };
-  const handleChangedFilter = () => {
-    console.log('handleChangedFilter');
+  const handleChangedFilter = (e) => {
+    setFilter(e.target.value);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <button>Search</button>
+      <button>{t('search-engine.submit')}</button>
       <input
-        placeholder="Search the Breaking Bad information..."
+        placeholder={t('search-engine.placeholder')}
         onChange={(e) => setSearchValue(e.target.value)}
         value={searchValue}
       />

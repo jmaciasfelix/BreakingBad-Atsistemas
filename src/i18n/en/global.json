@@ -7,5 +7,15 @@
       "seasons": "Seasons 🎥",
       "character": "Characters 🧑‍🤝‍🧑",
       "killer": "Killers 🔪"
+    },
+    "search-engine": {
+      "submit": "Search",
+      "placeholder": "Search the Breaking Bad information",
+      "filter": {
+        "CHARACTER": "Character",
+        "EPISODE": "Episode",
+        "QUOTE": "Quote",
+        "KILLER": "Killer"
+      }
     }
   }
