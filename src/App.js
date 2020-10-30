@@ -20,9 +20,9 @@ function App() {
         <div className="nav-container">
           <div>
             <p>{t('nav.theme')}</p>
-            <label class="switch">
+            <label className="switch">
               <input type="checkbox" onChange={handleLgn} />
-              <span class="slider round"></span>
+              <span className="slider round"></span>
             </label>
           </div>
           <p>{t('nav.search')}</p>
