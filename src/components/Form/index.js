@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import "./Form.scss"
 //hooks
 import { useTranslation } from 'react-i18next';
 //services
@@ -15,31 +16,45 @@ export const Form = (props) => {
   ];
   const [searchValue, setSearchValue] = useState('');
   const [filter, setFilter] = useState(FILTER[0]);
+  const [result, setResult] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('handleSubmit Form search');
-    getInformationByFilter('Walter', filter);
+    getInformationByFilter(searchValue, filter).then((response) =>
+      setResult(response[0])
+    );
   };
   const handleChangedFilter = (e) => {
     setFilter(e.target.value);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <button>{t('search-engine.submit')}</button>
-      <input
-        placeholder={t('search-engine.placeholder')}
-        onChange={(e) => setSearchValue(e.target.value)}
-        value={searchValue}
-      />
-      <select value={filter} onChange={handleChangedFilter}>
-        <option disabled>Filter:</option>
-        {FILTER.map((filter) => (
-          <option key={filter}>{filter}</option>
-        ))}
-      </select>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <button>{t('search-engine.submit')}</button>
+        <input
+          placeholder={t('search-engine.placeholder')}
+          onChange={(e) => setSearchValue(e.target.value)}
+          value={searchValue}
+        />
+        <select value={filter} onChange={handleChangedFilter}>
+          <option disabled>Filter:</option>
+          {FILTER.map((filter) => (
+            <option key={filter}>{filter}</option>
+          ))}
+        </select>
+        {result && (
+          <div>
+            <h3>{result.name}</h3>
+            <figure>
+              <img src={result.img} alt={result.name || ''} />
+            </figure>
+            <p>Nickname: {result.nickname}</p>
+          </div>
+        )}
+      </form>
+    </>
   );
 };
 
