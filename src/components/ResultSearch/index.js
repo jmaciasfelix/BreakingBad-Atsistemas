@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+//bootstrap
+import { Button, Card } from 'react-bootstrap';
 
-export const ResultSearch = ({ info }) => (
-  <div>
-    <p>{info.name}</p>
-    <p>{info.status}</p>
-    <p>{info.birthday}</p>
-  </div>
-);
+export const ResultSearch = ({ info }) => {
+  return (
+    <Card>
+      <Card.Img variant="top" src={info.img} />
+      <Card.Body>
+        <Card.Title>{info.name}</Card.Title>
+        <Button variant="primary">Details</Button>
+      </Card.Body>
+    </Card>
+  );
+};
 
 ResultSearch.propTypes = {};

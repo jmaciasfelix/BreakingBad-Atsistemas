@@ -6,10 +6,12 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 //actions Redux
 import { searchLoading } from 'actions';
-//components
-import { ResultSearch } from 'components/ResultSearch';
 //bootstrap
-import { Button } from 'react-bootstrap';
+import {
+  Button,
+  Form as FormBootstrap,
+  FormControl
+} from 'react-bootstrap';
 
 export const Form = () => {
   const [t] = useTranslation('global');
@@ -35,26 +37,30 @@ export const Form = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            placeholder={t('search-engine.placeholder')}
-            onChange={(e) => setSearchValue(e.target.value)}
-            disabled={storeSearch.loading}
-            value={searchValue}
-          />
-          <select value={filter} onChange={handleChangedFilter}>
-            <option disabled>Filter:</option>
-            {FILTER.map((filter) => (
-              <option key={filter}>{filter}</option>
-            ))}
-          </select>
-        </div>
-        <button className="button button-block" disabled={storeSearch.loading}>
+      <FormBootstrap inline onSubmit={handleSubmit}>
+        <FormControl
+          type="text"
+          placeholder={t('search-engine.placeholder')}
+          className=" mr-sm-2"
+          onChange={(e) => setSearchValue(e.target.value)}
+          disabled={storeSearch.loading}
+          value={searchValue}
+        />
+        <Button type="submit" disabled={storeSearch.loading}>
           {t('search-engine.submit')}
-        </button>
-      </form>
-      {!storeSearch?.loading && <ResultSearch info={storeSearch.lastSearch} />}
+        </Button>
+        <FormControl
+          as="select"
+          custom
+          value={filter}
+          onChange={handleChangedFilter}
+        >
+          <option disabled>Filter:</option>
+          {FILTER.map((filter) => (
+            <option key={filter}>{filter}</option>
+          ))}
+        </FormControl>
+      </FormBootstrap>
     </>
   );
 };

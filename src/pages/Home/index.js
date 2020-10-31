@@ -1,10 +1,9 @@
 import React from 'react';
+import "./Home.css"
 //react-router-dom
 import { Link } from 'react-router-dom';
 //hooks
 import { useTranslation } from 'react-i18next';
-
-import { Button } from 'react-bootstrap';
 
 export const HomePage = () => {
   const [t] = useTranslation('global');

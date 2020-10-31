@@ -11,11 +11,16 @@ import { Link } from 'react-router-dom';
 import { Navbar, Button } from 'react-bootstrap';
 
 export const NavApp = () => {
+  const [isDark, setDark] = React.useState(false);
   const [t, i18n] = useTranslation('global');
   const handleLgn = () => {
     i18n.language === 'es'
       ? i18n.changeLanguage('en')
       : i18n.changeLanguage('es');
+  };
+  const handleTheme = () => {
+    console.log('Se cambia el Tema');
+    setDark(!isDark);
   };
 
   return (
@@ -32,6 +37,9 @@ export const NavApp = () => {
         </Link>
       </Navbar.Brand>
       <div>
+        <Button className="mr-2" variant="light" onClick={handleTheme}>
+          {isDark ? '🌙' : '🌞'}
+        </Button>
         <Button className="mr-2" variant="light" onClick={handleLgn}>
           {t('nav.lang')}
         </Button>

@@ -18,18 +18,3 @@ html {
 *:after {
   box-sizing: inherit;
 }
-
-body {
-  margin: 0;
-  font-family: 'Manrope', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: var(--fz);
-  background-color: var(--theme-body-bg);
-  color: var(--theme-body-txt);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
