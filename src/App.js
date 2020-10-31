@@ -1,45 +1,20 @@
 import './App.scss';
-import Logo from './logo.png';
-//pages
 import { HomePage, CharactersPage } from 'pages';
-
-//hooks
-import { useTranslation } from 'react-i18next';
 //react-router-dom
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { SearchEngine } from 'components/SearchEngine';
-//redux
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //redux
 import { Provider } from 'react-redux';
 import { createStore } from 'store';
+//bootstrap
+import { Container } from 'react-bootstrap';
+import { NavApp } from 'components/NavApp/NavApp';
 
 function App() {
-  //TODO App no debe saber esto, quiero crear un componente
-  const [t, i18n] = useTranslation('global');
-  const handleLgn = () => {
-    i18n.language === 'es'
-      ? i18n.changeLanguage('en')
-      : i18n.changeLanguage('es');
-  };
   return (
     <Provider store={createStore()}>
-      <div className="App">
+      <Container>
         <Router>
-          <div className="nav-container">
-            <div>
-              <p>{t('nav.theme')}</p>
-              <label className="switch">
-                <input type="checkbox" onChange={handleLgn} />
-                <span className="slider round"></span>
-              </label>
-            </div>
-            <SearchEngine />
-          </div>
-          <figure>
-            <Link to="/">
-              <img alt="Breaking Bad logo" src={Logo} />
-            </Link>
-          </figure>
+          <NavApp />
           <Switch>
             <Route exact path="/">
               <HomePage />
@@ -49,7 +24,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
-      </div>
+      </Container>
     </Provider>
   );
 }

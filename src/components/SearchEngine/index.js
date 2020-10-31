@@ -5,6 +5,10 @@ import Modal from '../Modal/index';
 import { Form } from '../Form';
 //hooks
 import { useTranslation } from 'react-i18next';
+//bootstrap
+import {
+  Button,
+} from 'react-bootstrap';
 
 export const SearchEngine = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,7 +20,9 @@ export const SearchEngine = () => {
   };
   return (
     <>
-      <p onClick={handleToggleModal}>{t('nav.search')}</p>
+    <Button onClick={handleToggleModal} variant="light" >
+    {t('nav.search')}
+    </Button>
       {showModal && (
         <Modal onClose={handleToggleModal}>
           <Form />

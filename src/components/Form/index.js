@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { searchLoading } from 'actions';
 //components
 import { ResultSearch } from 'components/ResultSearch';
+//bootstrap
+import { Button } from 'react-bootstrap';
 
 export const Form = () => {
   const [t] = useTranslation('global');
