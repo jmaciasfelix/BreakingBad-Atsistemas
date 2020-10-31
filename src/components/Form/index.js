@@ -9,7 +9,7 @@ import { searchLoading } from 'actions';
 //components
 import { ResultSearch } from 'components/ResultSearch';
 
-export const Form = (props) => {
+export const Form = () => {
   const [t] = useTranslation('global');
   const FILTER = [
     t('search-engine.filter.CHARACTER'),
@@ -21,7 +21,6 @@ export const Form = (props) => {
   const [filter, setFilter] = useState(FILTER[0]);
   const dispatch = useDispatch();
   const storeSearch = useSelector((state) => state.searchReducer);
-  console.log(storeSearch);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,25 +34,25 @@ export const Form = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <button disabled={storeSearch.loading}>
+        <div>
+          <input
+            placeholder={t('search-engine.placeholder')}
+            onChange={(e) => setSearchValue(e.target.value)}
+            disabled={storeSearch.loading}
+            value={searchValue}
+          />
+          <select value={filter} onChange={handleChangedFilter}>
+            <option disabled>Filter:</option>
+            {FILTER.map((filter) => (
+              <option key={filter}>{filter}</option>
+            ))}
+          </select>
+        </div>
+        <button className="button button-block" disabled={storeSearch.loading}>
           {t('search-engine.submit')}
         </button>
-        <input
-          placeholder={t('search-engine.placeholder')}
-          onChange={(e) => setSearchValue(e.target.value)}
-          disabled={storeSearch.loading}
-          value={searchValue}
-        />
-        <select value={filter} onChange={handleChangedFilter}>
-          <option disabled>Filter:</option>
-          {FILTER.map((filter) => (
-            <option key={filter}>{filter}</option>
-          ))}
-        </select>
       </form>
-      {
-        !storeSearch?.loading && <ResultSearch info={storeSearch.lastSearch} />
-      }
+      {!storeSearch?.loading && <ResultSearch info={storeSearch.lastSearch} />}
     </>
   );
 };

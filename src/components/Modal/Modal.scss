@@ -8,7 +8,7 @@
   right: 0;
   z-index: 10;
   .modal-content {
-    background: #111;
+    background: var(--color-4);
     width: 800px;
     padding: 10px 20px;
     border-radius: 1.5rem;
@@ -16,11 +16,13 @@
     margin: 10vh auto;
     position: relative;
     .btn {
-      font-size: 30px;
+      position: absolute;
+      top:2rem;
+      right: 2rem;
+      font-size: 28px;
       display: block;
       background-color: transparent;
       border-color: transparent;
-      margin: 14px 0;
     }
   }
 }
