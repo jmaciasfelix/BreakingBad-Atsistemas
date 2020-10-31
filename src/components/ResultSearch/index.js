@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 
 export const ResultSearch = ({ info }) => {
-  return (
+  const show = Object.entries(info).length !== 0;
+  return show ? (
     <Card>
       <Card.Img variant="top" src={info.img} />
       <Card.Body>
@@ -12,7 +13,7 @@ export const ResultSearch = ({ info }) => {
         <Button variant="primary">Details</Button>
       </Card.Body>
     </Card>
-  );
+  ) : null;
 };
 
 ResultSearch.propTypes = {};

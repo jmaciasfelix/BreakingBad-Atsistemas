@@ -8,6 +8,7 @@ import { createStore } from 'store';
 //bootstrap
 import { Container } from 'react-bootstrap';
 import { NavApp } from 'components/NavApp/NavApp';
+import { DetailsCharacter } from 'pages/DetailsCharacter';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route exact path="/personajes">
               <CharactersPage />
+            </Route>
+            <Route exact path="/personajes/:name">
+              <DetailsCharacter />
             </Route>
           </Switch>
         </Router>
