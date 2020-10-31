@@ -20,7 +20,7 @@ export const ListOfSeasons = () => {
       <Card.Body>
         {episodes.map((episode) => (
           <Link
-            to={`${url}/${episode.episode_id}`}
+            to={`${url}/${episode.season}/episode/${episode.episode_id}`}
             key={episode.episode_id}
             className="season-link"
           >
@@ -30,6 +30,7 @@ export const ListOfSeasons = () => {
       </Card.Body>
     );
   };
+  
   return (
     <>
       {loading ? (

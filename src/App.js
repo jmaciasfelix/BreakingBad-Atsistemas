@@ -23,13 +23,13 @@ function App() {
             <Route exact path="/">
               <HomePage />
             </Route>
-            <Route exact path="/personajes">
+            <Route exact path="/character">
               <CharactersPage />
             </Route>
-            <Route exact path="/personajes/:name">
+            <Route exact path="/character/:name">
               <DetailsCharacter />
             </Route>
-            <Route exact path="/temporadas">
+            <Route exact path="/seasons">
               <SeasonsPage />
             </Route>
           </Switch>

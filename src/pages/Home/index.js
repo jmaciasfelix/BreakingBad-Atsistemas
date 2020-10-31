@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Home.css"
+import './Home.css';
 //react-router-dom
 import { Link } from 'react-router-dom';
 //hooks
@@ -10,13 +10,13 @@ export const HomePage = () => {
   return (
     <>
       <section className="container-home">
-        <Link to={`temporadas`}>
+        <Link to={`seasons`}>
           <h2>{t('home.seasons')}</h2>
         </Link>
-        <Link to={`personajes`}>
+        <Link to={`characters`}>
           <h2>{t('home.character')}</h2>
         </Link>
-        <Link to={`asesinos`}>
+        <Link to={`killers`}>
           <h2>{t('home.killer')}</h2>
         </Link>
       </section>
