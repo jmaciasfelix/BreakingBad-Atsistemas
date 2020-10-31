@@ -21,5 +21,8 @@
     },
     "charactersPage":{
       "title": "List of characters"
+    },
+    "seasonsPage":{
+      "title": "List of seasons"
     }
   }

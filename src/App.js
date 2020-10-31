@@ -7,8 +7,11 @@ import { Provider } from 'react-redux';
 import { createStore } from 'store';
 //bootstrap
 import { Container } from 'react-bootstrap';
+//components
 import { NavApp } from 'components/NavApp/NavApp';
+//page
 import { DetailsCharacter } from 'pages/DetailsCharacter';
+import { SeasonsPage } from 'pages/Seasons';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
             </Route>
             <Route exact path="/personajes/:name">
               <DetailsCharacter />
+            </Route>
+            <Route exact path="/temporadas">
+              <SeasonsPage />
             </Route>
           </Switch>
         </Router>

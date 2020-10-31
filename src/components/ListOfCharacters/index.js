@@ -1,5 +1,5 @@
 import React from 'react';
-import './ListOfCharacters.scss';
+import './ListOfCharacters.css';
 import PropTypes from 'prop-types';
 //components
 import { Character } from '../Character';

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Link, useRouteMatch } from 'react-router-dom';
 
 export const Character = ({ name, img }) => {
-  let { url } = useRouteMatch();
+  const { url } = useRouteMatch();
   return (
     <div className="character">
       <Link to={`${url}/${name.replace(' ', '-')}`} className="character-link">
