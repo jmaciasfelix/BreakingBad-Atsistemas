@@ -28,7 +28,7 @@ export const DetailsEpisode = () => {
       setEpisode(response);
     });
   }, [url]);
-  //TODO
+
   return isLoading ? (
     <Spinner />
   ) : episode?.season ? (
@@ -43,7 +43,7 @@ export const DetailsEpisode = () => {
       <div className="my-5">
         <h2 className="mb-4">Lista de personajes</h2>
         {episode?.characters?.map((character) => (
-          <Link to={`/character/${character.replace(' ', '-')}`}>
+          <Link to={`/characters/${character.replace(' ', '-')}`}>
             <Button className="mb-2" variant="primary" size="lg" block>
               {character}
             </Button>

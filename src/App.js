@@ -24,10 +24,10 @@ function App() {
             <Route exact path="/">
               <HomePage />
             </Route>
-            <Route exact path="/character">
+            <Route exact path="/characters">
               <CharactersPage />
             </Route>
-            <Route exact path="/character/:name">
+            <Route exact path="/characters/:name">
               <DetailsCharacter />
             </Route>
             <Route exact path="/seasons">
