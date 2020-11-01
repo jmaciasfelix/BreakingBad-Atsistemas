@@ -15,6 +15,7 @@ export const SearchEngine = () => {
   const [t] = useTranslation('global');
 
   const storeSearch = useSelector((state) => state.searchReducer);
+
   const handleToggleModal = () => {
     (() => {
       setShowModal(!showModal);
@@ -32,7 +33,7 @@ export const SearchEngine = () => {
         </Modal.Header>
         <Modal.Body>
           {!storeSearch?.loading && (
-            <ResultSearch info={storeSearch.lastSearch} />
+            <ResultSearch onHide={handleToggleModal} info={storeSearch.lastSearch} />
           )}
         </Modal.Body>
       </Modal>

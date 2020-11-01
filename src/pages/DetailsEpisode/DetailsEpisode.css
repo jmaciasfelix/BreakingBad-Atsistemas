@@ -11,3 +11,11 @@ h1 {
   font-size: 20px;
   font-weight: 600;
 }
+
+.heading-table {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1rem 0;
+  background-color: var(--color-4);
+}

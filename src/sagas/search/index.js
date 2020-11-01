@@ -13,8 +13,10 @@ function* watchSearchAsync() {
 
 //TODO
 const getEndpointByFilter = (filter, value) => {
-  console.log(`Endpoint dependiendo del filtro ${filter} value ${value}`);
-  return `https://www.breakingbadapi.com/api/characters?name=${value}`;
+  return `https://www.breakingbadapi.com/api/characters?name=${value.replaceAll(
+    ' ',
+    '+'
+  )}`;
 };
 
 function* getUsers({ payload }) {
@@ -29,7 +31,7 @@ function* getUsers({ payload }) {
     console.error(`ERROR getUsers SAGA: ${error}`);
     yield put({
       type: SEARCH_ERROR,
-      payload: error.response.data,
+      payload: {},
     });
   }
 }

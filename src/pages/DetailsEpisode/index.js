@@ -7,7 +7,8 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import { getEpisodeById } from 'services/getEpisodeById';
 import { Spinner } from 'components/Spinner';
 //bootstrap
-import { Button } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
+import { ListCharactersEpisode } from 'components/ListCharactersEpisode';
 
 export const DetailsEpisode = () => {
   const [episode, setEpisode] = useState({});
@@ -20,6 +21,7 @@ export const DetailsEpisode = () => {
     const idEpisode = splitUrl[splitUrl.length - 1];
     return idEpisode;
   };
+
   useEffect(() => {
     const idEpisode = getIdEpisodeByUrl(url);
     setLoading(true);
@@ -42,13 +44,12 @@ export const DetailsEpisode = () => {
       </div>
       <div className="my-5">
         <h2 className="mb-4">Lista de personajes</h2>
-        {episode?.characters?.map((character) => (
-          <Link to={`/characters/${character.replace(' ', '-')}`}>
-            <Button className="mb-2" variant="primary" size="lg" block>
-              {character}
-            </Button>
-          </Link>
-        ))}
+        <Row className="heading-table">
+          <Col>Nombre</Col>
+          <Col xs={6}>Cita</Col>
+          <Col>Estado</Col>
+        </Row>
+        <ListCharactersEpisode episode={episode} />
       </div>
     </>
   ) : null;
