@@ -3,8 +3,7 @@ import './Seasons.css';
 import PropTypes from 'prop-types';
 //hooks
 import { useTranslation } from 'react-i18next';
-//bootstrap
-import {} from 'react-bootstrap';
+//components
 import { ListOfSeasons } from 'components/ListOfSeasons';
 
 export const SeasonsPage = () => {

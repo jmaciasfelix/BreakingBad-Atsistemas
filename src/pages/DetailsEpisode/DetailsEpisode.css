@@ -1,0 +1,13 @@
+h1 {
+  font-weight: 600;
+}
+.details-episode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22px;
+}
+.details-episode span {
+  font-size: 20px;
+  font-weight: 600;
+}

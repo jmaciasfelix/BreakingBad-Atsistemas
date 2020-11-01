@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 //react-router
 import { Link } from 'react-router-dom';
 //bootstrap
-import { Navbar, Button } from 'react-bootstrap';
+import { Nav, Navbar, Button } from 'react-bootstrap';
 
 export const NavApp = () => {
   const [isDark, setDark] = React.useState(false);
@@ -36,7 +36,7 @@ export const NavApp = () => {
           />
         </Link>
       </Navbar.Brand>
-      <div>
+      <Nav>
         <Button className="mr-2" variant="light" onClick={handleTheme}>
           {isDark ? '🌙' : '🌞'}
         </Button>
@@ -44,7 +44,7 @@ export const NavApp = () => {
           {t('nav.lang')}
         </Button>
         <SearchEngine />
-      </div>
+      </Nav>
     </Navbar>
   );
 };

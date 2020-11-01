@@ -13,7 +13,6 @@ import { Link, useRouteMatch } from 'react-router-dom';
 export const ListOfSeasons = () => {
   const [loading, seasons] = useSeasons();
   const { url } = useRouteMatch();
-  console.log(url);
 
   const builderListEpisode = (episodes) => {
     return (

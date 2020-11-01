@@ -9,8 +9,9 @@ import { createStore } from 'store';
 import { Container } from 'react-bootstrap';
 //components
 import { NavApp } from 'components/NavApp/NavApp';
-//page
+//pages
 import { DetailsCharacter } from 'pages/DetailsCharacter';
+import { DetailsEpisode } from 'pages/DetailsEpisode';
 import { SeasonsPage } from 'pages/Seasons';
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route exact path="/seasons">
               <SeasonsPage />
+            </Route>
+            <Route exact path="/seasons/:id/episode/:id">
+              <DetailsEpisode />
             </Route>
           </Switch>
         </Router>

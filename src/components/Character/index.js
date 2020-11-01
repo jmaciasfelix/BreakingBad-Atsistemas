@@ -8,7 +8,10 @@ export const Character = ({ name, img }) => {
   const { url } = useRouteMatch();
   return (
     <div className="character">
-      <Link to={`${url}/${name.replace(' ', '-')}`} className="character-link">
+      <Link
+        to={`${url}/${name.replaceAll(' ', '-')}`}
+        className="character-link"
+      >
         <h4>{name}</h4>
         <img loading="lazy" alt={name} src={img} />
       </Link>
