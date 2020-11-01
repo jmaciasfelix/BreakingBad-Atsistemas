@@ -1,5 +1,13 @@
 import './App.scss';
-import { HomePage, CharactersPage } from 'pages';
+//pages
+import {
+  HomePage,
+  CharactersPage,
+  KillersPage,
+  SeasonsPage,
+  DetailsEpisode,
+  DetailsCharacter,
+} from 'pages';
 //react-router-dom
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //redux
@@ -9,10 +17,6 @@ import { createStore } from 'store';
 import { Container } from 'react-bootstrap';
 //components
 import { NavApp } from 'components/NavApp/NavApp';
-//pages
-import { DetailsCharacter } from 'pages/DetailsCharacter';
-import { DetailsEpisode } from 'pages/DetailsEpisode';
-import { SeasonsPage } from 'pages/Seasons';
 
 function App() {
   return (
@@ -35,6 +39,9 @@ function App() {
             </Route>
             <Route exact path="/seasons/:id/episode/:id">
               <DetailsEpisode />
+            </Route>
+            <Route path="/killers">
+              <KillersPage />
             </Route>
           </Switch>
         </Router>
