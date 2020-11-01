@@ -24,5 +24,9 @@
   },
   "seasonsPage": {
     "title": "Lista de temporadas"
+  },
+  "detailsCharacter": {
+    "quotes": "Citas",
+    "error": "Ha ocurrido un error realizando la búsqueda, es posible que el nombre del personaje no exista, este mal escrito o se haya usado el nick para referirse a el. Vuelve a intentarlo haciendo click en 🔍."
   }
 }

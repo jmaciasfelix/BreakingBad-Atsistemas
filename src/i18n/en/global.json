@@ -1,28 +1,32 @@
 {
-    "nav": {
-      "theme": "Theme 🌙",
-      "search": "Search 🔍",
-      "lang": "🇬🇧"
-    },
-    "home": {
-      "seasons": "Seasons 🎥",
-      "character": "Characters 🧑‍🤝‍🧑",
-      "killer": "Killers 🔪"
-    },
-    "search-engine": {
-      "submit": "Search",
-      "placeholder": "Search the Breaking Bad information",
-      "filter": {
-        "CHARACTER": "Character",
-        "EPISODE": "Episode",
-        "QUOTE": "Quote",
-        "KILLER": "Killer"
-      }
-    },
-    "charactersPage":{
-      "title": "List of characters"
-    },
-    "seasonsPage":{
-      "title": "List of seasons"
+  "nav": {
+    "theme": "Theme 🌙",
+    "search": "Search 🔍",
+    "lang": "🇬🇧"
+  },
+  "home": {
+    "seasons": "Seasons 🎥",
+    "character": "Characters 🧑‍🤝‍🧑",
+    "killer": "Killers 🔪"
+  },
+  "search-engine": {
+    "submit": "Search",
+    "placeholder": "Search the Breaking Bad information",
+    "filter": {
+      "CHARACTER": "Character",
+      "EPISODE": "Episode",
+      "QUOTE": "Quote",
+      "KILLER": "Killer"
     }
+  },
+  "charactersPage": {
+    "title": "List of characters"
+  },
+  "seasonsPage": {
+    "title": "List of seasons"
+  },
+  "detailsCharacter": {
+    "quotes": "Quotes",
+    "error": "An error has occurred while searching, it is possible that the character's name does not exist, is misspelled or the nickname has been used to refer to him. Try again by clicking 🔍."
   }
+}
