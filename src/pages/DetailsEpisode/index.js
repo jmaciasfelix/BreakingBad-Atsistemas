@@ -9,8 +9,11 @@ import { Spinner } from 'components/Spinner';
 //bootstrap
 import { Button, Col, Row } from 'react-bootstrap';
 import { ListCharactersEpisode } from 'components/ListCharactersEpisode';
+//i18n
+import { useTranslation } from 'react-i18next';
 
 export const DetailsEpisode = () => {
+  const [t] = useTranslation('global');
   const [episode, setEpisode] = useState({});
   const [isLoading, setLoading] = useState(false);
 
@@ -36,18 +39,20 @@ export const DetailsEpisode = () => {
   ) : episode?.season ? (
     <>
       <div className="my-5">
-        <h1>{`Season ${episode.season} - Episode ${episode.episode}`}</h1>
+        <h1>{`${t('detailsEpisodePage.season')} ${episode.season} - ${t(
+          'detailsEpisodePage.episode'
+        )}  ${episode.episode}`}</h1>
         <p className="details-episode">
-          {`Title: ${episode.title}`}{' '}
+          {`${t('detailsEpisodePage.title')} : ${episode.title}`}{' '}
           <span>{`📡 ${episode.air_date.replaceAll('-', '/')}`}</span>
         </p>
       </div>
       <div className="my-5">
-        <h2 className="mb-4">Lista de personajes</h2>
+        <h2 className="mb-4">{t('detailsEpisodePage.table.title')} </h2>
         <Row className="heading-table">
-          <Col>Nombre</Col>
-          <Col xs={6}>Cita</Col>
-          <Col>Estado</Col>
+          <Col>{t('detailsEpisodePage.table.name')} </Col>
+          <Col xs={6}>{t('detailsEpisodePage.table.quote')} </Col>
+          <Col>{t('detailsEpisodePage.table.status')} </Col>
         </Row>
         <ListCharactersEpisode episode={episode} />
       </div>

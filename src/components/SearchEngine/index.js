@@ -27,13 +27,22 @@ export const SearchEngine = () => {
       <Button onClick={handleToggleModal} variant="light">
         {t('nav.search')}
       </Button>
-      <Modal show={showModal} onHide={handleToggleModal}>
-        <Modal.Header closeButton>
+      <Modal
+        show={showModal}
+        onHide={handleToggleModal}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton className="py-3">
           <Form />
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="py-2">
           {!storeSearch?.loading && (
-            <ResultSearch onHide={handleToggleModal} info={storeSearch.lastSearch} />
+            <ResultSearch
+              onHide={handleToggleModal}
+              info={storeSearch.lastSearch}
+            />
           )}
         </Modal.Body>
       </Modal>

@@ -8,7 +8,7 @@ import { ListOfCharacters } from 'components/ListOfCharacters';
 export const CharactersPage = () => {
   const [t] = useTranslation('global');
   return (
-    <div className="container-characters">
+    <div className="container-characters my-5">
       <h1 className="my-5">{t('charactersPage.title')}</h1>
       <ListOfCharacters />
     </div>

@@ -52,25 +52,25 @@ export const DetailsCharacter = () => {
       <h1>
         <Character name={character.name} img={character.img}>
           <ListGroup className="my-5">
-            <ListGroup.Item>Cumpleaños: {character.birthday} </ListGroup.Item>
-            <ListGroup.Item>Estado: {character.status} </ListGroup.Item>
-            <ListGroup.Item>Nickname: {character.nickname} </ListGroup.Item>
+            <ListGroup.Item>{t('detailsCharacter.table.birthday')}: {character.birthday} </ListGroup.Item>
+            <ListGroup.Item>{t('detailsCharacter.table.status')}: {character.status} </ListGroup.Item>
+            <ListGroup.Item>{t('detailsCharacter.table.nickname')}: {character.nickname} </ListGroup.Item>
             <ListGroup.Item>
-              Interpretado por {character.portrayed}{' '}
+            {t('detailsCharacter.table.portrayed')} {character.portrayed}{' '}
             </ListGroup.Item>
-            <ListGroup.Item>Categoria: {character.category} </ListGroup.Item>
+            <ListGroup.Item>{t('detailsCharacter.table.category')}: {character.category} </ListGroup.Item>
             <ListGroup.Item>
               <ListGroup>
-                Apariciones:
-                {character.appearance.map((season) => (
+              {t('detailsCharacter.table.appearance')}:
+                {character?.appearance?.map((season) => (
                   <ListGroup.Item key={season}>{season}</ListGroup.Item>
                 ))}
               </ListGroup>
             </ListGroup.Item>
             <ListGroup.Item>
               <ListGroup>
-                Ocupación:
-                {character.occupation.map((job) => (
+              {t('detailsCharacter.table.occupation')}:
+                {character?.occupation?.map((job) => (
                   <ListGroup.Item key={job}>{job}</ListGroup.Item>
                 ))}
               </ListGroup>

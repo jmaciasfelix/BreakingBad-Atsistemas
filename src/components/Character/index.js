@@ -1,5 +1,5 @@
 import React from 'react';
-import './Character.scss';
+import './Character.css';
 import PropTypes from 'prop-types';
 //react-router
 import { Link } from 'react-router-dom';

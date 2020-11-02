@@ -9,8 +9,11 @@ import { useSeasons } from 'hooks/useSeasons';
 import { Accordion, Card, Button } from 'react-bootstrap';
 //react-router
 import { Link, useRouteMatch } from 'react-router-dom';
+//hooks
+import { useTranslation } from 'react-i18next';
 
 export const ListOfSeasons = () => {
+  const [t] = useTranslation('global');
   const [loading, seasons] = useSeasons();
   const { url } = useRouteMatch();
 
@@ -44,7 +47,7 @@ export const ListOfSeasons = () => {
                   variant="link"
                   eventKey={season[0].season}
                 >
-                  {`Temporada ${season[0].season}`}
+                  {`${t("seasonsPage.season")} ${season[0].season}`}
                 </Accordion.Toggle>
               </Card.Header>
               <Accordion.Collapse eventKey={season[0].season}>

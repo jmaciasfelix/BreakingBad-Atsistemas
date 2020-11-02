@@ -17,15 +17,26 @@
       "EPISODE": "Episode",
       "QUOTE": "Quote",
       "KILLER": "Killer"
-    }
+    },
+    "details": "Details" 
   },
   "charactersPage": {
     "title": "List of characters"
   },
   "seasonsPage": {
-    "title": "List of seasons"
+    "title": "List of seasons",
+    "season": "Season"
   },
   "detailsCharacter": {
+    "table": {
+      "birthday": "Birthday",
+      "status": "Status",
+      "nickname": "Nickname",
+      "portrayed": "Portrayed",
+      "category": "Category",
+      "appearance": "Appearance",
+      "occupation": "Occupation"
+    },
     "quotes": "Quotes",
     "error": "An error has occurred while searching, it is possible that the character's name does not exist, is misspelled or the nickname has been used to refer to him. Try again by clicking 🔍."
   },
@@ -33,6 +44,17 @@
     "table": {
       "name": "Characters",
       "deathCount": "Death"
+    }
+  },
+  "detailsEpisodePage": {
+    "season": "Season",
+    "episode": "Episode",
+    "title": "Title",
+    "table": {
+      "title": "List of characters",
+      "name": "Name",
+      "quote": "Quote",
+      "status": "Status"
     }
   }
 }

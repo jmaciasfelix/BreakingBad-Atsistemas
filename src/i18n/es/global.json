@@ -17,15 +17,26 @@
       "EPISODE": "Episodio",
       "QUOTE": "Citas",
       "KILLER": "Asesino"
-    }
+    },
+    "details": "Detalles" 
   },
   "charactersPage": {
     "title": "Listado de personajes"
   },
   "seasonsPage": {
-    "title": "Lista de temporadas"
+    "title": "Lista de temporadas",
+    "season": "Temporada"
   },
   "detailsCharacter": {
+    "table": {
+      "birthday": "Cumpleaños",
+      "status": "Estado",
+      "nickname": "Apodo",
+      "portrayed": "Interpretado por",
+      "category": "Categoria",
+      "appearance": "Apariciones",
+      "occupation": "Ocupaciones"
+    },
     "quotes": "Citas",
     "error": "Ha ocurrido un error realizando la búsqueda, es posible que el nombre del personaje no exista, este mal escrito o se haya usado el nick para referirse a el. Vuelve a intentarlo haciendo click en 🔍."
   },
@@ -33,6 +44,17 @@
     "table": {
       "name": "Personajes",
       "deathCount": "Asesinatos"
+    }
+  },
+  "detailsEpisodePage": {
+    "season": "Temporada",
+    "episode": "Episodio",
+    "title": "Título",
+    "table": {
+      "title": "Lista de personajes",
+      "name": "Nombre",
+      "quote": "Cita",
+      "status": "Estado"
     }
   }
 }
