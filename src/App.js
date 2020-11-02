@@ -1,4 +1,4 @@
-import './App.scss';
+import './App.css';
 //pages
 import {
   HomePage,
@@ -17,35 +17,39 @@ import { createStore } from 'store';
 import { Container } from 'react-bootstrap';
 //components
 import { NavApp } from 'components/NavApp/NavApp';
+import { Theme } from 'components/Theme';
 
 function App() {
   return (
     <Provider store={createStore()}>
-      <Container>
-        <Router>
-          <NavApp />
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/characters">
-              <CharactersPage />
-            </Route>
-            <Route exact path="/characters/:name">
-              <DetailsCharacter />
-            </Route>
-            <Route exact path="/seasons">
-              <SeasonsPage />
-            </Route>
-            <Route exact path="/seasons/:id/episode/:id">
-              <DetailsEpisode />
-            </Route>
-            <Route path="/killers">
-              <KillersPage />
-            </Route>
-          </Switch>
-        </Router>
-      </Container>
+      
+      <Theme>
+        <Container>
+          <Router>
+            <NavApp />
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route exact path="/characters">
+                <CharactersPage />
+              </Route>
+              <Route exact path="/characters/:name">
+                <DetailsCharacter />
+              </Route>
+              <Route exact path="/seasons">
+                <SeasonsPage />
+              </Route>
+              <Route exact path="/seasons/:id/episode/:id">
+                <DetailsEpisode />
+              </Route>
+              <Route path="/killers">
+                <KillersPage />
+              </Route>
+            </Switch>
+          </Router>
+        </Container>
+      </Theme>
     </Provider>
   );
 }

@@ -1,0 +1,10 @@
+.darkTheme {
+  background-color: var(--color-4);
+ height: 100%;
+  color: white;
+}
+.lightTheme {
+  background-color: var(--color-1);
+  height: 100%;
+  color: black;
+}

@@ -34,30 +34,34 @@ export const DetailsEpisode = () => {
     });
   }, [url]);
 
-  return isLoading ? (
-    <Spinner />
-  ) : episode?.season ? (
-    <>
-      <div className="my-5">
-        <h1>{`${t('detailsEpisodePage.season')} ${episode.season} - ${t(
-          'detailsEpisodePage.episode'
-        )}  ${episode.episode}`}</h1>
-        <p className="details-episode">
-          {`${t('detailsEpisodePage.title')} : ${episode.title}`}{' '}
-          <span>{`📡 ${episode.air_date.replaceAll('-', '/')}`}</span>
-        </p>
-      </div>
-      <div className="my-5">
-        <h2 className="mb-4">{t('detailsEpisodePage.table.title')} </h2>
-        <Row className="heading-table">
-          <Col>{t('detailsEpisodePage.table.name')} </Col>
-          <Col xs={6}>{t('detailsEpisodePage.table.quote')} </Col>
-          <Col>{t('detailsEpisodePage.table.status')} </Col>
-        </Row>
-        <ListCharactersEpisode episode={episode} />
-      </div>
-    </>
-  ) : null;
+  return (
+    <div className="min-height">
+      {isLoading ? (
+        <Spinner />
+      ) : episode?.season ? (
+        <div className="min-height">
+          <div className="my-5">
+            <h1>{`${t('detailsEpisodePage.season')} ${episode.season} - ${t(
+              'detailsEpisodePage.episode'
+            )}  ${episode.episode}`}</h1>
+            <p className="details-episode">
+              {`${t('detailsEpisodePage.title')} : ${episode.title}`}{' '}
+              <span>{`📡 ${episode.air_date.replaceAll('-', '/')}`}</span>
+            </p>
+          </div>
+          <div className="my-5">
+            <h2 className="mb-4">{t('detailsEpisodePage.table.title')} </h2>
+            <Row className="heading-table">
+              <Col>{t('detailsEpisodePage.table.name')} </Col>
+              <Col xs={6}>{t('detailsEpisodePage.table.quote')} </Col>
+              <Col>{t('detailsEpisodePage.table.status')} </Col>
+            </Row>
+            <ListCharactersEpisode episode={episode} />
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
 };
 
 DetailsEpisode.propTypes = {};

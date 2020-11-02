@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../../logo.png';
 //components
@@ -9,8 +9,12 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 //bootstrap
 import { Nav, Navbar, Button } from 'react-bootstrap';
+//context
+import ThemeContext from 'context/ThemeContext';
 
 export const NavApp = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
+  console.log(theme);
   const [isDark, setDark] = React.useState(false);
   const [t, i18n] = useTranslation('global');
   const handleLgn = () => {
@@ -19,8 +23,8 @@ export const NavApp = () => {
       : i18n.changeLanguage('es');
   };
   const handleTheme = () => {
-    console.log('Se cambia el Tema');
     setDark(!isDark);
+    theme === 'darkTheme' ? setTheme('lightTheme') : setTheme('darkTheme');
   };
 
   return (

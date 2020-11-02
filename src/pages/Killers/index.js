@@ -91,56 +91,41 @@ export const KillersPage = () => {
   };
 
   return (
-    <>
-      <section className="my-5">
-        <>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>{t('killersPage.table.name')}</th>
-                <th>
-                  {t('killersPage.table.deathCount')}
-                  <DropdownButton
-                    id="dropdown-basic-button"
-                    title="Ordenar"
-                    as={ButtonGroup}
-                  >
-                    <ToggleButtonGroup
-                      type="radio"
-                      className="mb-2"
-                      onChange={handleFilter}
-                      name="options"
-                    >
-                      <ToggleButton value={1}>Menor a mayor</ToggleButton>
-                      <ToggleButton value={2}>Mayor a menor</ToggleButton>
-                    </ToggleButtonGroup>
-                  </DropdownButton>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {deathCount.map(({ deathCount, name }) => (
-                <tr key={name}>
-                  <td>{name}</td>
-                  <td>{deathCount}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-          <canvas id="myChart"></canvas>
-        </>
-      </section>
-    </>
+    <div className="min-height py-5">
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>{t('killersPage.table.name')}</th>
+            <th>
+              {t('killersPage.table.deathCount')}
+              <DropdownButton
+                id="dropdown-basic-button"
+                title="Ordenar"
+                as={ButtonGroup}
+              >
+                <ToggleButtonGroup
+                  type="radio"
+                  className="mb-2"
+                  onChange={handleFilter}
+                  name="options"
+                >
+                  <ToggleButton value={1}>Menor a mayor</ToggleButton>
+                  <ToggleButton value={2}>Mayor a menor</ToggleButton>
+                </ToggleButtonGroup>
+              </DropdownButton>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {deathCount.map(({ deathCount, name }) => (
+            <tr key={name}>
+              <td>{name}</td>
+              <td>{deathCount}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      <canvas id="myChart"></canvas>
+    </div>
   );
 };
-
-// useEffect(() => {
-//     getCharacters().then((response) => {
-//       const nameCharacter = response.map(({ name }) =>
-//         name.replaceAll(' ', '+')
-//       );
-//       nameCharacter.map((author) =>
-//         getDeaths(author).then((response) => console.log(response[0]))
-//       );
-//     });
-//   }, []);

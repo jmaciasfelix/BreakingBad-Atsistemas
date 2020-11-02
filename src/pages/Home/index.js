@@ -8,18 +8,16 @@ import { useTranslation } from 'react-i18next';
 export const HomePage = () => {
   const [t] = useTranslation('global');
   return (
-    <>
-      <section className="container-home">
-        <Link to={`seasons`}>
-          <h2>{t('home.seasons')}</h2>
-        </Link>
-        <Link to={`characters`}>
-          <h2>{t('home.character')}</h2>
-        </Link>
-        <Link to={`killers`}>
-          <h2>{t('home.killer')}</h2>
-        </Link>
-      </section>
-    </>
+    <div className="min-height container-home">
+      <Link to={`seasons`}>
+        <h2>{t('home.seasons')}</h2>
+      </Link>
+      <Link to={`characters`}>
+        <h2>{t('home.character')}</h2>
+      </Link>
+      <Link to={`killers`}>
+        <h2>{t('home.killer')}</h2>
+      </Link>
+    </div>
   );
 };

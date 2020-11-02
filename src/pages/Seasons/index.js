@@ -9,7 +9,7 @@ import { ListOfSeasons } from 'components/ListOfSeasons';
 export const SeasonsPage = () => {
   const [t] = useTranslation('global');
   return (
-    <div className="container-characters">
+    <div className="min-height container-characters">
       <h1 className="my-5">{t('seasonsPage.title')}</h1>
       <ListOfSeasons />
     </div>
