@@ -43,7 +43,10 @@
   "killersPage": {
     "table": {
       "name": "Personajes",
-      "deathCount": "Asesinatos"
+      "deathCount": "Asesinatos",
+      "dropTitle": "Filtrar",
+      "lowToHigh": "Menor a mayor",
+      "highToLight": "Mayor a menor"
     }
   },
   "detailsEpisodePage": {

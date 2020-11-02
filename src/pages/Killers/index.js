@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Killers.css';
 //services
 import { getDeaths } from 'services/getDeaths';
 import { getCharacters } from 'services/getCharacters';
@@ -14,9 +15,12 @@ import {
 import { useTranslation } from 'react-i18next';
 //chart
 import Chart from 'chart.js';
+//components
+import { Spinner } from 'components/Spinner';
 
 export const KillersPage = () => {
   const [t] = useTranslation('global');
+  const [loading, setLoading] = useState(false);
   const [deathCount, setDeathCount] = useState([]);
 
   const sortDeathCount = (a, b) => {
@@ -40,6 +44,7 @@ export const KillersPage = () => {
           {
             label: 'Muertes',
             data: array.map(({ deathCount }) => deathCount),
+            backgroundColor: 'white',
           },
         ],
       },
@@ -62,7 +67,7 @@ export const KillersPage = () => {
   };
 
   useEffect(() => {
-    console.log('renderizo');
+    setLoading(true);
     getCharacters().then((response) => {
       const nameCharacter = response.map(({ name }) =>
         name.replaceAll(' ', '+')
@@ -78,6 +83,7 @@ export const KillersPage = () => {
             .sort((a, b) => sortDeathCount(a, b))
             .filter(({ deathCount }) => deathCount !== 0)
         );
+        setLoading(false);
       });
     });
   }, []);
@@ -92,40 +98,55 @@ export const KillersPage = () => {
 
   return (
     <div className="min-height py-5">
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>{t('killersPage.table.name')}</th>
-            <th>
-              {t('killersPage.table.deathCount')}
-              <DropdownButton
-                id="dropdown-basic-button"
-                title="Ordenar"
-                as={ButtonGroup}
-              >
-                <ToggleButtonGroup
-                  type="radio"
-                  className="mb-2"
-                  onChange={handleFilter}
-                  name="options"
-                >
-                  <ToggleButton value={1}>Menor a mayor</ToggleButton>
-                  <ToggleButton value={2}>Mayor a menor</ToggleButton>
-                </ToggleButtonGroup>
-              </DropdownButton>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {deathCount.map(({ deathCount, name }) => (
-            <tr key={name}>
-              <td>{name}</td>
-              <td>{deathCount}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-      <canvas id="myChart"></canvas>
+      {loading ? (
+        <>
+          <Spinner />
+          <canvas id="myChart"></canvas>
+        </>
+      ) : (
+        <>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>
+                  <h3>{t('killersPage.table.name')}</h3>
+                </th>
+                <th className="btnDrop">
+                  <h3>{t('killersPage.table.deathCount')}</h3>
+                  <DropdownButton
+                    id="dropdown-basic-button"
+                    title={t('killersPage.table.dropTitle')}
+                    as={ButtonGroup}
+                  >
+                    <ToggleButtonGroup
+                      type="radio"
+                      className="mb-2"
+                      onChange={handleFilter}
+                      name="options"
+                    >
+                      <ToggleButton value={1}>
+                        {t('killersPage.table.lowToHigh')}
+                      </ToggleButton>
+                      <ToggleButton value={2}>
+                        {t('killersPage.table.highToLight')}
+                      </ToggleButton>
+                    </ToggleButtonGroup>
+                  </DropdownButton>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {deathCount.map(({ deathCount, name }) => (
+                <tr key={name}>
+                  <td>{name}</td>
+                  <td>{deathCount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+          <canvas id="myChart"></canvas>
+        </>
+      )}
     </div>
   );
 };

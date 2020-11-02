@@ -11,10 +11,11 @@ import { Accordion, Card, Button } from 'react-bootstrap';
 import { Link, useRouteMatch } from 'react-router-dom';
 //hooks
 import { useTranslation } from 'react-i18next';
+//HOC
+import {withSeasons} from "HOC/withSeasons"
 
-export const ListOfSeasons = () => {
+ const ListOfSeasons = ({loading, seasons}) => {
   const [t] = useTranslation('global');
-  const [loading, seasons] = useSeasons();
   const { url } = useRouteMatch();
 
   const builderListEpisode = (episodes) => {
@@ -61,4 +62,4 @@ export const ListOfSeasons = () => {
   );
 };
 
-ListOfSeasons.propTypes = {};
+export default withSeasons(ListOfSeasons)

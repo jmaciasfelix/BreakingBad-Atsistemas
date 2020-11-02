@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 //components
 import { Form } from '../Form';
-import { ResultSearch } from 'components/ResultSearch';
+import { ResultSearch } from 'components/SearchEngine/ResultSearch';
 //hooks
 import { useTranslation } from 'react-i18next';
 //redux
@@ -15,6 +15,8 @@ export const SearchEngine = () => {
   const [t] = useTranslation('global');
 
   const storeSearch = useSelector((state) => state.searchReducer);
+
+  console.log(storeSearch);
 
   const handleToggleModal = () => {
     (() => {
@@ -41,7 +43,8 @@ export const SearchEngine = () => {
           {!storeSearch?.loading && (
             <ResultSearch
               onHide={handleToggleModal}
-              info={storeSearch.lastSearch}
+              response={storeSearch.lastSearch.response}
+              filter={storeSearch.lastSearch.filter}
             />
           )}
         </Modal.Body>

@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './Form.scss';
 //hooks
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 //actions Redux
 import { searchLoading } from 'actions';
 //bootstrap
-import {
-  Button,
-  Form as FormBootstrap,
-  FormControl
-} from 'react-bootstrap';
+import { Button, Form as FormBootstrap, FormControl } from 'react-bootstrap';
 
 export const Form = () => {
   const [t] = useTranslation('global');

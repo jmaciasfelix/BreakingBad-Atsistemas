@@ -1,7 +1,3 @@
-/*
- * action Search
- */
-
 const MODULE_ID = '@SEARCH';
 
 const SEARCH_LOADING = `${MODULE_ID}/SEARCH_LOADING`;

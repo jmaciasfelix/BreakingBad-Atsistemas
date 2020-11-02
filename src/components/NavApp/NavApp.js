@@ -14,7 +14,6 @@ import ThemeContext from 'context/ThemeContext';
 
 export const NavApp = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-  console.log(theme);
   const [isDark, setDark] = React.useState(false);
   const [t, i18n] = useTranslation('global');
   const handleLgn = () => {

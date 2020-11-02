@@ -43,7 +43,10 @@
   "killersPage": {
     "table": {
       "name": "Characters",
-      "deathCount": "Death"
+      "deathCount": "Death",
+      "dropTitle": "Filter",
+      "lowToHigh": "Lower to high",
+      "highToLight": "High to lower"
     }
   },
   "detailsEpisodePage": {

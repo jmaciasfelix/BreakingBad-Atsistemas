@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import './DetailsEpisode.css';
+//components
+import { ListCharactersEpisode } from 'components/ListCharactersEpisode';
 //react-router
-import { Link, useRouteMatch } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 //services
 import { getEpisodeById } from 'services/getEpisodeById';
 import { Spinner } from 'components/Spinner';
 //bootstrap
-import { Button, Col, Row } from 'react-bootstrap';
-import { ListCharactersEpisode } from 'components/ListCharactersEpisode';
+import { Col, Row } from 'react-bootstrap';
 //i18n
 import { useTranslation } from 'react-i18next';
 
@@ -27,6 +27,7 @@ export const DetailsEpisode = () => {
 
   useEffect(() => {
     const idEpisode = getIdEpisodeByUrl(url);
+
     setLoading(true);
     getEpisodeById(idEpisode).then((response) => {
       setLoading(false);
@@ -63,5 +64,3 @@ export const DetailsEpisode = () => {
     </div>
   );
 };
-
-DetailsEpisode.propTypes = {};

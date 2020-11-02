@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import './DetailsCharacter.css';
 //react-router
@@ -13,8 +13,13 @@ import { useCharacter } from 'hooks/useCharacter';
 import { getQuoteByAuthor } from 'services/getQuoteByAuthor';
 //i18n
 import { useTranslation } from 'react-i18next';
+//context
+import ThemeContext from 'context/ThemeContext';
 
 export const DetailsCharacter = () => {
+  const { theme } = useContext(ThemeContext);
+  const themeCharacterDetails =
+    theme === 'darkTheme' ? 'dark-character' : 'light-character';
   const [t] = useTranslation('global');
   const { url } = useRouteMatch();
   const [loading, character] = useCharacter(
@@ -30,7 +35,7 @@ export const DetailsCharacter = () => {
   }, [character]);
 
   return (
-    <div className="min-height">
+    <div className="py-5 min-height">
       {loading ? (
         <Spinner />
       ) : character?.name ? (
@@ -41,7 +46,7 @@ export const DetailsCharacter = () => {
               <Carousel
                 interval={null}
                 controls={false}
-                className="my-5 carousel-quotes"
+                className={`my-5 carousel-quotes ${themeCharacterDetails}`}
               >
                 {quotes.map((quote) => (
                   <Carousel.Item key={quote?.quote_id} className="py-5">
@@ -52,7 +57,7 @@ export const DetailsCharacter = () => {
             </div>
           )}
           <Character name={character.name} img={character.img}>
-            <ListGroup className="py-5">
+            <ListGroup className="mt-5 txt-black">
               <ListGroup.Item>
                 {t('detailsCharacter.table.birthday')}: {character.birthday}{' '}
               </ListGroup.Item>
@@ -88,7 +93,7 @@ export const DetailsCharacter = () => {
           </Character>
         </>
       ) : (
-        <h1 className="py-5">{t('detailsCharacter.error')}</h1>
+        <h1 className="my-5">{t('detailsCharacter.error')}</h1>
       )}
     </div>
   );
