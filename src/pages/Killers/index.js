@@ -12,6 +12,8 @@ import {
 } from 'react-bootstrap';
 //i18n
 import { useTranslation } from 'react-i18next';
+//chart
+import Chart from 'chart.js';
 
 export const KillersPage = () => {
   const [t] = useTranslation('global');
@@ -27,6 +29,38 @@ export const KillersPage = () => {
     return 0;
   };
 
+  const createGraf = (array) => {
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    var myBarChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: array.map(({ name }) => name),
+        datasets: [
+          {
+            label: 'Muertes',
+            data: array.map(({ deathCount }) => deathCount),
+          },
+        ],
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Asesinatos cometidos por personajes',
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
+  };
+
   useEffect(() => {
     console.log('renderizo');
     getCharacters().then((response) => {
@@ -35,6 +69,11 @@ export const KillersPage = () => {
       );
       getDeaths(nameCharacter).then((res) => {
         setDeathCount(
+          res
+            .sort((a, b) => sortDeathCount(a, b))
+            .filter(({ deathCount }) => deathCount !== 0)
+        );
+        createGraf(
           res
             .sort((a, b) => sortDeathCount(a, b))
             .filter(({ deathCount }) => deathCount !== 0)
@@ -88,6 +127,7 @@ export const KillersPage = () => {
               ))}
             </tbody>
           </Table>
+          <canvas id="myChart"></canvas>
         </>
       </section>
     </>
