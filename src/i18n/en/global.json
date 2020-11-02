@@ -28,5 +28,11 @@
   "detailsCharacter": {
     "quotes": "Quotes",
     "error": "An error has occurred while searching, it is possible that the character's name does not exist, is misspelled or the nickname has been used to refer to him. Try again by clicking 🔍."
+  },
+  "killersPage": {
+    "table": {
+      "name": "Characters",
+      "deathCount": "Death"
+    }
   }
 }
