@@ -63,5 +63,9 @@
       "status": "Estado"
     },
     "error": "Ha ocurrido un error 💥, intentelo de nuevo."
+  },
+  "NotFound": {
+    "title": "Ups, la página a la que intenta acceder no ha sido econtrada",
+    "redirect": "Haz click aquí para volver a la página principal"
   }
 }

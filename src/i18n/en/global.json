@@ -63,5 +63,9 @@
       "status": "Status"
     },
     "error": "An error has occurred 💥, please try again."
+  },
+  "NotFound": {
+    "title": "Oops, the page you are trying to access has not been found",
+    "redirect": "Click here to go back to the main page"
   }
 }

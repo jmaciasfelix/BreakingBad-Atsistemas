@@ -7,6 +7,7 @@ import {
   SeasonsPage,
   DetailsEpisode,
   DetailsCharacter,
+  Four0Four,
 } from 'pages';
 //react-router-dom
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -22,7 +23,6 @@ import { Theme } from 'components/Theme';
 function App() {
   return (
     <Provider store={createStore()}>
-      
       <Theme>
         <Container>
           <Router>
@@ -45,6 +45,9 @@ function App() {
               </Route>
               <Route path="/killers">
                 <KillersPage />
+              </Route>
+              <Route>
+                <Four0Four />
               </Route>
             </Switch>
           </Router>
