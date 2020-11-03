@@ -17,25 +17,20 @@ import { useTranslation } from 'react-i18next';
 import Chart from 'chart.js';
 //components
 import { Spinner } from 'components/Spinner';
+//hooks
+import { useDispatch, useSelector } from 'react-redux';
+//actions
+import { killersLoading, killersSort } from 'actions/killers.action';
 
 export const KillersPage = () => {
   const [t] = useTranslation('global');
-  const [loading, setLoading] = useState(false);
-  const [deathCount, setDeathCount] = useState([]);
-
-  const sortDeathCount = (a, b) => {
-    if (a.deathCount > b.deathCount) {
-      return -1;
-    }
-    if (a.deathCount < b.deathCount) {
-      return 1;
-    }
-    return 0;
-  };
+  const dispatch = useDispatch();
+  const storeSearch = useSelector((state) => state.killersReducer);
+  const loading = storeSearch.loading;
+  let deathCount = storeSearch.deathCount;
 
   const createGraf = (array) => {
     var ctx = document.getElementById('myChart').getContext('2d');
-
     var myBarChart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -67,33 +62,18 @@ export const KillersPage = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
-    getCharacters().then((response) => {
-      const nameCharacter = response.map(({ name }) =>
-        name.replaceAll(' ', '+')
-      );
-      getDeaths(nameCharacter).then((res) => {
-        setDeathCount(
-          res
-            .sort((a, b) => sortDeathCount(a, b))
-            .filter(({ deathCount }) => deathCount !== 0)
-        );
-        createGraf(
-          res
-            .sort((a, b) => sortDeathCount(a, b))
-            .filter(({ deathCount }) => deathCount !== 0)
-        );
-        setLoading(false);
-      });
-    });
-  }, []);
+    console.log(deathCount);
+    if (deathCount?.length === undefined) {
+      dispatch(killersLoading());
+    }
+
+    if (!loading && deathCount?.length > 0) {
+      createGraf(deathCount);
+    }
+  }, [deathCount, dispatch, loading]);
 
   const handleFilter = (filter) => {
-    if (filter === 1) {
-      setDeathCount([...deathCount].sort((a, b) => sortDeathCount(b, a)));
-    } else if (filter === 2) {
-      setDeathCount([...deathCount].sort((a, b) => sortDeathCount(a, b)));
-    }
+    dispatch(killersSort({ filter, deathCount }));
   };
 
   return (
@@ -136,7 +116,7 @@ export const KillersPage = () => {
               </tr>
             </thead>
             <tbody>
-              {deathCount.map(({ deathCount, name }) => (
+              {deathCount?.map(({ deathCount, name, index }) => (
                 <tr key={name}>
                   <td>{name}</td>
                   <td>{deathCount}</td>
@@ -150,3 +130,22 @@ export const KillersPage = () => {
     </div>
   );
 };
+
+// getCharacters().then((response) => {
+//   const nameCharacter = response.map(({ name }) =>
+//     name.replaceAll(' ', '+')
+//   );
+//   getDeaths(nameCharacter).then((res) => {
+//     setDeathCount(
+//       res
+//         .filter(({ deathCount }) => deathCount !== 0)
+//         .sort((a, b) => sortDeathCount(a, b))
+//     );
+//     createGraf(
+//       res
+//         .filter(({ deathCount }) => deathCount !== 0)
+//         .sort((a, b) => sortDeathCount(a, b))
+//     );
+//     setLoading(false);
+//   });
+// });

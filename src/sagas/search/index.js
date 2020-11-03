@@ -1,5 +1,5 @@
 import { spawn, takeEvery, call, put } from 'redux-saga/effects';
-import { SEARCH_LOADING, SEARCH_RESPONSE, SEARCH_ERROR } from 'actions';
+import { SEARCH_LOADING, SEARCH_RESPONSE, SEARCH_ERROR } from 'actions/search.action';
 //TODO eliminar axios y usar un servicio || ELiminar console log
 import axios from 'axios';
 import { getEndpointByFilter } from 'services/getEndpointByFilter';
@@ -14,8 +14,6 @@ function* watchSearchAsync() {
 
 function* getUsers({ payload }) {
   const ENDPOINT = getEndpointByFilter(payload.filter, payload.searchValue);
-  console.log(payload)
-  console.log(ENDPOINT);
   try {
     const response = yield call(axios.get, ENDPOINT);
     yield put({

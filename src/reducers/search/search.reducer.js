@@ -1,6 +1,6 @@
 //importar las acciones
 //actions
-import { SEARCH_ERROR, SEARCH_LOADING, SEARCH_RESPONSE } from 'actions';
+import { SEARCH_ERROR, SEARCH_LOADING, SEARCH_RESPONSE } from 'actions/search.action';
 import { createReducer } from '../util';
 
 const initialState = {

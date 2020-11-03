@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 //actions Redux
-import { searchLoading } from 'actions';
+import { searchLoading } from 'actions/search.action';
 //bootstrap
 import { Button, Form as FormBootstrap, FormControl } from 'react-bootstrap';
 

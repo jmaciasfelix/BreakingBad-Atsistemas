@@ -16,8 +16,6 @@ export const SearchEngine = () => {
 
   const storeSearch = useSelector((state) => state.searchReducer);
 
-  console.log(storeSearch);
-
   const handleToggleModal = () => {
     (() => {
       setShowModal(!showModal);
