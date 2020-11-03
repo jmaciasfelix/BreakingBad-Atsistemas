@@ -59,6 +59,7 @@
       "name": "Name",
       "quote": "Quote",
       "status": "Status"
-    }
+    },
+    "error": "An error has occurred 💥, please try again."
   }
 }

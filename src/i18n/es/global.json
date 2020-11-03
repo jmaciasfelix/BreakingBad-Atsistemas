@@ -59,6 +59,7 @@
       "name": "Nombre",
       "quote": "Cita",
       "status": "Estado"
-    }
+    },
+    "error": "Ha ocurrido un error 💥, intentelo de nuevo."
   }
 }

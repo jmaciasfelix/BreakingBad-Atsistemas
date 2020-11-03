@@ -15,12 +15,12 @@ import { withSeasons } from 'HOC/withSeasons';
 const ListOfSeasons = ({ loading, seasons }) => {
   const [t] = useTranslation('global');
   const { url } = useRouteMatch();
-  seasons = [];
+
   return (
     <>
       {loading ? (
         <Spinner />
-      ) : seasons.length !== 0 ? (
+      ) : seasons?.length !== 0 ? (
         <Accordion defaultActiveKey="0">
           {seasons?.map((season) => (
             <AccordionSeason key={season[0].season} url={url} season={season} />
