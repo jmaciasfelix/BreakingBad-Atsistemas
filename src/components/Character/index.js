@@ -19,4 +19,8 @@ export const Character = ({ name, img, children }) => {
   );
 };
 
-Character.propTypes = {};
+Character.propTypes = {
+  name: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};

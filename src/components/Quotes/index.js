@@ -26,4 +26,7 @@ export const Quotes = ({ quotes, themeCharacterDetails }) => {
   );
 };
 
-Quotes.propTypes = {};
+Quotes.propTypes = {
+  quotes: PropTypes.array.isRequired,
+  themeCharacterDetails: PropTypes.string.isRequired,
+};

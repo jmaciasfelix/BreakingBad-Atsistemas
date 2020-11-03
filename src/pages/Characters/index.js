@@ -1,8 +1,8 @@
 import React from 'react';
 import './Characters.css';
-import PropTypes from 'prop-types';
 //hooks
 import { useTranslation } from 'react-i18next';
+//components
 import { ListOfCharacters } from 'components/ListOfCharacters';
 
 export const CharactersPage = () => {
@@ -14,5 +14,3 @@ export const CharactersPage = () => {
     </div>
   );
 };
-
-CharactersPage.propTypes = {};

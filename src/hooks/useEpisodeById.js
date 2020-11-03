@@ -4,6 +4,9 @@ import { useRouteMatch } from 'react-router-dom';
 //services
 import { getEpisodeById } from 'services/getEpisodeById';
 
+/**
+ * Hook to get episode by id
+ */
 export function useEpisodeById() {
   const { url } = useRouteMatch();
   const [episode, setEpisode] = useState();

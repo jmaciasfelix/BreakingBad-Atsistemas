@@ -3,10 +3,15 @@ import i18next from 'i18next';
 
 const ENDPOINT_BASE = 'https://www.breakingbadapi.com/api/';
 
+/**
+ * Get endpoint by filter
+ * @param {string} filter
+ * @param {string} value
+ */
 export function getEndpointByFilter(filter, value) {
   const lng = i18next.language;
   const FILTER = i18next.store.data[lng].global['search-engine'].filter;
-  
+
   if (filter === FILTER.CHARACTER) {
     return `${ENDPOINT_BASE}characters?name=${value.replaceAll(' ', '+')}`;
   } else if (filter === FILTER.EPISODE) {

@@ -2,6 +2,10 @@ import axios from 'axios';
 
 const ENDPOINT = 'https://breakingbadapi.com/api/death-count?name=';
 
+/**
+ * Get death by author
+ * @param {string} author
+ */
 export async function getDeaths(author) {
   return Promise.all(
     author.map((name) =>

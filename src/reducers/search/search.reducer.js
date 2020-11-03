@@ -1,6 +1,8 @@
-//importar las acciones
-//actions
-import { SEARCH_ERROR, SEARCH_LOADING, SEARCH_RESPONSE } from 'actions/search.action';
+import {
+  SEARCH_ERROR,
+  SEARCH_LOADING,
+  SEARCH_RESPONSE,
+} from 'actions/search.action';
 import { createReducer } from '../util';
 
 const initialState = {
@@ -32,7 +34,7 @@ const searchError = (state = initialState, action) => {
 const searchReducer = createReducer(initialState, {
   [SEARCH_LOADING]: searchLoading,
   [SEARCH_RESPONSE]: searchResponse,
-  [SEARCH_ERROR]: searchError
+  [SEARCH_ERROR]: searchError,
 });
 
 export { searchReducer };

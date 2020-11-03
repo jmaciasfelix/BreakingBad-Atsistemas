@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 export const ResultQuote = ({ info, onHide }) => {
   const [t] = useTranslation('global');
   const show = info && Object.entries(info)?.length !== 0;
-  
+
   return show ? (
     <Card>
       <Card.Body>
@@ -33,4 +33,9 @@ export const ResultQuote = ({ info, onHide }) => {
       </Card.Body>
     </Card>
   ) : null;
+};
+
+ResultQuote.propTypes = {
+  info: PropTypes.object.isRequired,
+  onHide: PropTypes.func.isRequired,
 };

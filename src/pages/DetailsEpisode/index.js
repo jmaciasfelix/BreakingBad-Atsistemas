@@ -1,13 +1,12 @@
 import React from 'react';
 import './DetailsEpisode.css';
-//services
-import { Spinner } from 'components/Spinner';
 //bootstrap
 import { Alert } from 'react-bootstrap';
-//i18n
-import { useTranslation } from 'react-i18next';
 //hook
+import { useTranslation } from 'react-i18next';
 import { useEpisodeById } from 'hooks/useEpisodeById';
+//components
+import { Spinner } from 'components/Spinner';
 import { Episode } from 'components/Episode';
 
 export const DetailsEpisode = () => {

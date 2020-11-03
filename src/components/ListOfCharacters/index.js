@@ -1,10 +1,10 @@
 import React from 'react';
 import './ListOfCharacters.css';
-import PropTypes from 'prop-types';
 //components
 import { Character } from '../Character';
-import { useCharacters } from 'hooks/useCharacters';
 import { Spinner } from 'components/Spinner';
+//hooks
+import { useCharacters } from 'hooks/useCharacters';
 
 export const ListOfCharacters = () => {
   const [loading, characters] = useCharacters();
@@ -26,5 +26,3 @@ export const ListOfCharacters = () => {
     </div>
   );
 };
-
-ListOfCharacters.propTypes = {};

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 //components
 import { Form } from '../Form';
 import { ResultSearch } from 'components/SearchEngine/ResultSearch';
@@ -53,5 +52,3 @@ export const SearchEngine = () => {
     </>
   );
 };
-
-SearchEngine.propTypes = {};

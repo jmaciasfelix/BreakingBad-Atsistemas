@@ -41,4 +41,6 @@ export const CharacterRow = ({ character }) => {
   );
 };
 
-CharacterRow.propTypes = {};
+CharacterRow.propTypes = {
+  character: PropTypes.string.isRequired,
+};

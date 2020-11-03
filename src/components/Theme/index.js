@@ -13,4 +13,6 @@ export const Theme = ({ children }) => {
   );
 };
 
-Theme.propTypes = {};
+Theme.propTypes = {
+  children: PropTypes.node.isRequired,
+};

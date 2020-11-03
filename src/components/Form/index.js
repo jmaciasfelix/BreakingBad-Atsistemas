@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 //hooks
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -31,33 +30,29 @@ export const Form = () => {
   };
 
   return (
-    <>
-      <FormBootstrap inline onSubmit={handleSubmit}>
-        <FormControl
-          type="text"
-          placeholder={t('search-engine.placeholder')}
-          className=" mr-sm-2"
-          onChange={(e) => setSearchValue(e.target.value)}
-          disabled={storeSearch.loading}
-          value={searchValue}
-        />
-        <Button type="submit" className="mx-1" disabled={storeSearch.loading}>
-          {t('search-engine.submit')}
-        </Button>
-        <FormControl
-          as="select"
-          custom
-          value={filter}
-          onChange={handleChangedFilter}
-        >
-          <option disabled>Filter:</option>
-          {FILTER.map((filter) => (
-            <option key={filter}>{filter}</option>
-          ))}
-        </FormControl>
-      </FormBootstrap>
-    </>
+    <FormBootstrap inline onSubmit={handleSubmit}>
+      <FormControl
+        type="text"
+        placeholder={t('search-engine.placeholder')}
+        className=" mr-sm-2"
+        onChange={(e) => setSearchValue(e.target.value)}
+        disabled={storeSearch.loading}
+        value={searchValue}
+      />
+      <Button type="submit" className="mx-1" disabled={storeSearch.loading}>
+        {t('search-engine.submit')}
+      </Button>
+      <FormControl
+        as="select"
+        custom
+        value={filter}
+        onChange={handleChangedFilter}
+      >
+        <option disabled>Filter:</option>
+        {FILTER.map((filter) => (
+          <option key={filter}>{filter}</option>
+        ))}
+      </FormControl>
+    </FormBootstrap>
   );
 };
-
-Form.propTypes = {};

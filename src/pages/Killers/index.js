@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './Killers.css';
-//services
-import { getDeaths } from 'services/getDeaths';
-import { getCharacters } from 'services/getCharacters';
 //bootstrap
 import {
   Table,
@@ -31,6 +28,7 @@ export const KillersPage = () => {
 
   const createGraf = (array) => {
     var ctx = document.getElementById('myChart').getContext('2d');
+    // eslint-disable-next-line no-unused-vars
     var myBarChart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -129,22 +127,3 @@ export const KillersPage = () => {
     </div>
   );
 };
-
-// getCharacters().then((response) => {
-//   const nameCharacter = response.map(({ name }) =>
-//     name.replaceAll(' ', '+')
-//   );
-//   getDeaths(nameCharacter).then((res) => {
-//     setDeathCount(
-//       res
-//         .filter(({ deathCount }) => deathCount !== 0)
-//         .sort((a, b) => sortDeathCount(a, b))
-//     );
-//     createGraf(
-//       res
-//         .filter(({ deathCount }) => deathCount !== 0)
-//         .sort((a, b) => sortDeathCount(a, b))
-//     );
-//     setLoading(false);
-//   });
-// });

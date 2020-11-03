@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 export const AccordionSeason = ({ url, season }) => {
   const [t] = useTranslation('global');
+  
   const builderListEpisode = (episodes) => {
     return (
       <Card.Body>
@@ -43,4 +44,7 @@ export const AccordionSeason = ({ url, season }) => {
   );
 };
 
-AccordionSeason.propTypes = {};
+AccordionSeason.propTypes = {
+  url: PropTypes.string.isRequired,
+  season: PropTypes.array.isRequired,
+};

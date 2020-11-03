@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import Logo from '../../logo.png';
 //components
 import { SearchEngine } from 'components/SearchEngine';
@@ -14,15 +13,15 @@ import ThemeContext from 'context/ThemeContext';
 
 export const NavApp = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-  const [isDark, setDark] = React.useState(false);
   const [t, i18n] = useTranslation('global');
+
   const handleLgn = () => {
     i18n.language === 'es'
       ? i18n.changeLanguage('en')
       : i18n.changeLanguage('es');
   };
+
   const handleTheme = () => {
-    setDark(!isDark);
     theme === 'darkTheme' ? setTheme('lightTheme') : setTheme('darkTheme');
   };
 
@@ -41,7 +40,7 @@ export const NavApp = () => {
       </Navbar.Brand>
       <Nav>
         <Button className="mr-2" variant="light" onClick={handleTheme}>
-          {isDark ? '🌙' : '🌞'}
+          {theme === 'darkTheme' ? '🌙' : '🌞'}
         </Button>
         <Button className="mr-2" variant="light" onClick={handleLgn}>
           {t('nav.lang')}
@@ -51,5 +50,3 @@ export const NavApp = () => {
     </Navbar>
   );
 };
-
-NavApp.propTypes = {};

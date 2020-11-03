@@ -12,7 +12,7 @@ import global_en from './i18n/en/global.json';
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: "es",
+  lng: 'es',
   resources: {
     es: {
       global: global_es,
@@ -24,7 +24,7 @@ i18next.init({
 });
 
 ReactDOM.render(
-  <React.StrictMode >
+  <React.StrictMode>
     <I18nextProvider i18n={i18next}>
       <App />
     </I18nextProvider>

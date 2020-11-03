@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { getEpisodes } from '../services/getEpisodes';
 
+/**
+ * Hook to get seasons
+ */
 export function useSeasons() {
   const [loading, setLoading] = useState(false);
   const [seasons, setSeasons] = useState();

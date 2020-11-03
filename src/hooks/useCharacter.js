@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
-import { getCharacter } from '../services/getCharacter';
 //react-router
 import { useRouteMatch } from 'react-router-dom';
 //services
 import { getQuoteByAuthor } from 'services/getQuoteByAuthor';
+import { getCharacter } from '../services/getCharacter';
 
+/**
+ * Hook to get character and quotes
+ */
 export function useCharacter() {
   const { url } = useRouteMatch();
   const [isLoading, setLoading] = useState(false);

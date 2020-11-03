@@ -33,4 +33,14 @@ export const Episode = ({episode}) => {
     )
 }
 
-Episode.propTypes = {};
+Episode.propTypes = {
+  episode: PropTypes.shape({
+    air_date: PropTypes.string.isRequired,
+    episode_id: PropTypes.number.isRequired,
+    episode: PropTypes.string.isRequired,
+    season: PropTypes.string.isRequired,
+    series: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    characters: PropTypes.arrayOf(PropTypes.string).isRequired
+  })
+};

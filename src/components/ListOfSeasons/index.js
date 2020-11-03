@@ -33,4 +33,8 @@ const ListOfSeasons = ({ loading, seasons }) => {
   );
 };
 
+ListOfSeasons.propTypes = {
+  loading: PropTypes.bool.isRequired,
+};
+
 export default withSeasons(ListOfSeasons);

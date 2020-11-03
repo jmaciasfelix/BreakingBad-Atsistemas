@@ -9,11 +9,11 @@ import { ResultEpisode } from 'components/SearchEngine/ResultEpisode';
 import { ResultKiller } from 'components/SearchEngine/ResultKiller';
 
 export const ResultSearch = ({ response, filter, onHide }) => {
+  console.log({ response, filter, onHide });
   const [t] = useTranslation('global');
   const show = response && Object.entries(response)?.length !== 0;
 
   const createResult = (filter) => {
-    
     if (filter === t('search-engine.filter.CHARACTER')) {
       return <ResultCharacter info={response} onHide={onHide} />;
     } else if (filter === t('search-engine.filter.QUOTE')) {
@@ -27,4 +27,19 @@ export const ResultSearch = ({ response, filter, onHide }) => {
   return show ? createResult(filter) : null;
 };
 
-ResultSearch.propTypes = {};
+ResultSearch.propTypes = {
+  filter: PropTypes.string.isRequired,
+  onHide: PropTypes.func.isRequired,
+  response: PropTypes.shape({
+    appearance: PropTypes.arrayOf(PropTypes.number).isRequired,
+    better_call_saul_appearance: PropTypes.arrayOf(PropTypes.number).isRequired,
+    birthday: PropTypes.string.isRequired,
+    char_id: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    nickname: PropTypes.string.isRequired,
+    portrayed: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+  }),
+};

@@ -3,8 +3,5 @@ import search from './search';
 import killers from './killers';
 
 export default function* rootSaga() {
-  yield all([
-    fork(search),
-    fork(killers)
-  ]);
+  yield all([fork(search), fork(killers)]);
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+//services
 import { getEpisodes } from 'services/getEpisodes';
 
 export function withSeasons(WrappedComponent) {
@@ -49,3 +51,7 @@ export function withSeasons(WrappedComponent) {
     }
   };
 }
+
+withSeasons.propTypes = {
+  WrappedComponent: PropTypes.node.isRequired,
+};

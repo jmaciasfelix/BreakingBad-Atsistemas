@@ -1,10 +1,9 @@
 import React from 'react';
-//styles
 import './Seasons.css';
 //hooks
 import { useTranslation } from 'react-i18next';
 //components
-import  ListOfSeasons  from 'components/ListOfSeasons';
+import ListOfSeasons from 'components/ListOfSeasons';
 
 export const SeasonsPage = () => {
   const [t] = useTranslation('global');

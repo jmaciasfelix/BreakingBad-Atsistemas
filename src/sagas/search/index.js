@@ -1,10 +1,14 @@
+//redux saga
 import { spawn, takeEvery, call, put } from 'redux-saga/effects';
+//actios search
 import {
   SEARCH_LOADING,
   SEARCH_RESPONSE,
   SEARCH_ERROR,
 } from 'actions/search.action';
+//axios
 import axios from 'axios';
+//services
 import { getEndpointByFilter } from 'services/getEndpointByFilter';
 
 export default function* usersSaga() {
@@ -19,7 +23,6 @@ function* getUsers({ payload }) {
   const ENDPOINT = getEndpointByFilter(payload.filter, payload.searchValue);
   try {
     const response = yield call(axios.get, ENDPOINT);
-
 
     yield put({
       type: SEARCH_RESPONSE,

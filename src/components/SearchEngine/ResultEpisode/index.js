@@ -33,3 +33,8 @@ export const ResultEpisode = ({ info, onHide }) => {
     </Card>
   ) : null;
 };
+
+ResultEpisode.propTypes = {
+  info: PropTypes.object.isRequired,
+  onHide: PropTypes.func.isRequired,
+};

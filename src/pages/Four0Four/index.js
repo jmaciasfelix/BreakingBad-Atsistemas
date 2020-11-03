@@ -1,5 +1,4 @@
 import React from 'react';
-import './Four0Four.css';
 //react-router
 import { Link } from 'react-router-dom';
 //i18n
@@ -16,5 +15,3 @@ export const Four0Four = () => {
     </div>
   );
 };
-
-Four0Four.propTypes = {};

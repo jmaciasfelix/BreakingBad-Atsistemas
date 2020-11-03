@@ -10,6 +10,8 @@ describe('NAME SUITE', () => {
 });
 */
 
+//TODO
+
 describe('Test App.js', () => {
   test('check text Buscador 🔍 in App', () => {
     // render(<App />);

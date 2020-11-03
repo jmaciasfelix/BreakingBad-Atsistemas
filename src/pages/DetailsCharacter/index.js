@@ -1,18 +1,17 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import './DetailsCharacter.css';
 //components
 import { Spinner } from 'components/Spinner';
 import { Character } from 'components/Character';
-//bootstrap
-import { Alert } from 'react-bootstrap';
-import { useCharacter } from 'hooks/useCharacter';
-//i18n
-import { useTranslation } from 'react-i18next';
-//context
-import ThemeContext from 'context/ThemeContext';
 import { Quotes } from 'components/Quotes';
 import { FieldsCharacter } from 'components/FieldsCharacter';
+//bootstrap
+import { Alert } from 'react-bootstrap';
+//context
+import ThemeContext from 'context/ThemeContext';
+//hooks
+import { useTranslation } from 'react-i18next';
+import { useCharacter } from 'hooks/useCharacter';
 
 export const DetailsCharacter = () => {
   const { theme } = useContext(ThemeContext);
@@ -47,5 +46,3 @@ export const DetailsCharacter = () => {
     </div>
   );
 };
-
-DetailsCharacter.propTypes = {};
