@@ -62,7 +62,6 @@ export const KillersPage = () => {
   };
 
   useEffect(() => {
-    console.log(deathCount);
     if (deathCount?.length === undefined) {
       dispatch(killersLoading());
     }

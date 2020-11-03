@@ -33,7 +33,7 @@ const killersError = (state = initialState, action) => {
 };
 
 const killersSort = (state = initialState, action) => {
-  console.log(action);
+
   return {
     ...state,
     deathCount:

@@ -25,7 +25,8 @@
   },
   "seasonsPage": {
     "title": "List of seasons",
-    "season": "Season"
+    "season": "Season",
+    "error": "An error has occurred 💥, please try again."
   },
   "detailsCharacter": {
     "table": {

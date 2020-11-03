@@ -13,7 +13,7 @@ export const ResultSearch = ({ response, filter, onHide }) => {
   const show = response && Object.entries(response)?.length !== 0;
 
   const createResult = (filter) => {
-    console.log(filter);
+    
     if (filter === t('search-engine.filter.CHARACTER')) {
       return <ResultCharacter info={response} onHide={onHide} />;
     } else if (filter === t('search-engine.filter.QUOTE')) {

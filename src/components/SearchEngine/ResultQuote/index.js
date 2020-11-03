@@ -11,7 +11,6 @@ export const ResultQuote = ({ info, onHide }) => {
   const [t] = useTranslation('global');
   const show = info && Object.entries(info)?.length !== 0;
   
-  console.log(info)
   return show ? (
     <Card>
       <Card.Body>

@@ -33,7 +33,7 @@ function* getKillers() {
       name.replaceAll(' ', '+')
     );
     const response = yield call(getDeaths, nameCharacter);
-    console.log(response);
+
 
     yield put({
       type: KILLERS_LOADED,
