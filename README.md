@@ -4,13 +4,16 @@ El proyecto consiste en el desarrollo de una aplicación para consultar datos de
 El proyecto ha sido desplegado en Netlify se puede acceder usando el siguiente [enlace](https://loving-bassi-e8b1bc.netlify.app/).
 
 ## Tecnologías
+### Usadas
+- React
+- Redux
+- Sagas
+- Hooks
+- Axios
+- React Router
+- i18next
+- Context
 
-React
-Redux
-Sagas
-Hooks
-Axios
-React Router
 ## Desplegar
 ### `npm install`
 En primer lugar es necesario instalar todos los módulos de los que depende la aplicación.
