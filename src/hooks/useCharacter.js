@@ -1,20 +1,42 @@
 import { useEffect, useState } from 'react';
 import { getCharacter } from '../services/getCharacter';
+//react-router
+import { useRouteMatch } from 'react-router-dom';
+//services
+import { getQuoteByAuthor } from 'services/getQuoteByAuthor';
 
-export function useCharacter(name) {
-  const [loading, setLoading] = useState(false);
-  const [character, setCharacter] = useState({});
+export function useCharacter() {
+  const { url } = useRouteMatch();
+  const [isLoading, setLoading] = useState(false);
+  const [character, setCharacter] = useState();
+  const [isError, setError] = useState(false);
+  const [quotes, setQuotes] = useState();
 
-  useEffect(
-    function () {
+  useEffect(() => {
+    if (!isError && character === undefined) {
+      const name = url.split('/').pop().replaceAll('-', ' ');
       setLoading(true);
-      getCharacter(name).then((characters) => {
-        setCharacter(characters);
-        setLoading(false);
-      });
-    },
-    [setCharacter, name]
-  );
+      getCharacter(name)
+        .then((characters) => {
+          if (characters) {
+            setCharacter(characters);
+            getQuoteByAuthor(characters.name.replaceAll(' ', '+')).then(
+              (response) => {
+                setQuotes(response);
+                setLoading(false);
+              }
+            );
+          } else {
+            setError(true);
+            setLoading(false);
+          }
+        })
+        .catch(() => {
+          setError(true);
+          setLoading(false);
+        });
+    }
+  }, [setCharacter, character, url, isError]);
 
-  return [loading, character];
+  return [isLoading, character, isError, quotes];
 }
