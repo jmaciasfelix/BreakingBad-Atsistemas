@@ -5,7 +5,6 @@ const SEARCH_RESPONSE = `${MODULE_ID}/SEARCH_RESPONSE`;
 const SEARCH_ERROR = `${MODULE_ID}/SEARCH_ERROR`;
 
 const searchLoading = (data = {}) => {
-  console.log("SeachLoading")
   return {
     type: SEARCH_LOADING,
     payload: data,

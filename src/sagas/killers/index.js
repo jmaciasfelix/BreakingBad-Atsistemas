@@ -39,7 +39,6 @@ function* getKillers() {
       payload: response,
     });
   } catch (error) {
-    console.error(`ERROR getUsers SAGA: ${error}`);
     yield put({
       type: KILLERS_ERROR,
     });

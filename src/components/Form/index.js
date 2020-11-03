@@ -20,11 +20,9 @@ export const Form = () => {
   const [filter, setFilter] = useState(FILTER[0]);
   const dispatch = useDispatch();
   const storeSearch = useSelector((state) => state.searchReducer);
-  console.log(storeSearch);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(searchLoading({ searchValue, filter }));
     dispatch(searchLoading({ searchValue, filter }));
     setSearchValue('');
   };

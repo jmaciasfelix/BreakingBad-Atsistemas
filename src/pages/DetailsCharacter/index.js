@@ -4,7 +4,8 @@ import './DetailsCharacter.css';
 //components
 import { Spinner } from 'components/Spinner';
 import { Character } from 'components/Character';
-
+//bootstrap
+import { Alert } from 'react-bootstrap';
 import { useCharacter } from 'hooks/useCharacter';
 //i18n
 import { useTranslation } from 'react-i18next';
@@ -28,11 +29,13 @@ export const DetailsCharacter = () => {
         <h1 className="my-5">{t('detailsCharacter.error')}</h1>
       ) : (
         <>
-          {quotes && (
+          {quotes && quotes[0] ? (
             <Quotes
               quotes={quotes}
               themeCharacterDetails={themeCharacterDetails}
             />
+          ) : (
+            <Alert variant="warning">{t('detailsCharacter.errorQuote')}</Alert>
           )}
           {character && (
             <Character name={character.name} img={character.img}>

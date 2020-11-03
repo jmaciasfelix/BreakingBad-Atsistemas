@@ -40,6 +40,7 @@
       "occupation": "Occupation"
     },
     "quotes": "Quotes",
+    "errorQuote": "This character is not dating",
     "error": "An error has occurred while searching, it is possible that the character's name does not exist, is misspelled or the nickname has been used to refer to him. Try again by clicking 🔍."
   },
   "killersPage": {

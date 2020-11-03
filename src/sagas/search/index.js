@@ -18,7 +18,6 @@ function* watchSearchAsync() {
 function* getUsers({ payload }) {
   const ENDPOINT = getEndpointByFilter(payload.filter, payload.searchValue);
   try {
-    console.log(ENDPOINT);
     const response = yield call(axios.get, ENDPOINT);
 
 
@@ -29,7 +28,6 @@ function* getUsers({ payload }) {
       },
     });
   } catch (error) {
-    console.error(`ERROR getUsers SAGA: ${error}`);
     yield put({
       type: SEARCH_ERROR,
       payload: { error: true },
