@@ -9,7 +9,6 @@ import {
   KILLERS_ERROR,
 } from 'actions/killers.action';
 
-import axios from 'axios';
 
 export default function* usersSaga() {
   yield spawn(watchKillersAsync);
@@ -39,7 +38,6 @@ function* getKillers() {
       type: KILLERS_LOADED,
       payload: response,
     });
-    
   } catch (error) {
     console.error(`ERROR getUsers SAGA: ${error}`);
     yield put({

@@ -20,9 +20,11 @@ export const Form = () => {
   const [filter, setFilter] = useState(FILTER[0]);
   const dispatch = useDispatch();
   const storeSearch = useSelector((state) => state.searchReducer);
+  console.log(storeSearch);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(searchLoading({ searchValue, filter }));
     dispatch(searchLoading({ searchValue, filter }));
     setSearchValue('');
   };
@@ -41,7 +43,7 @@ export const Form = () => {
           disabled={storeSearch.loading}
           value={searchValue}
         />
-        <Button type="submit" disabled={storeSearch.loading}>
+        <Button type="submit" className="mx-1" disabled={storeSearch.loading}>
           {t('search-engine.submit')}
         </Button>
         <FormControl

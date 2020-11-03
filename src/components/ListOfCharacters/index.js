@@ -17,7 +17,7 @@ export const ListOfCharacters = () => {
         characters &&
         characters.map((character) => (
           <Character
-            key={character.id}
+            key={character.char_id}
             name={character.name}
             img={character.img}
           />
