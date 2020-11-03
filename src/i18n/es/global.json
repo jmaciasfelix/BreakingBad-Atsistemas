@@ -18,7 +18,8 @@
       "QUOTE": "Citas",
       "KILLER": "Asesino"
     },
-    "details": "Detalles" 
+    "details": "Detalles",
+    "error": "No se han encontrado resultados 💥, vuelva a intentarlo"
   },
   "charactersPage": {
     "title": "Listado de personajes"

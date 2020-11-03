@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 //redux
 import { useSelector } from 'react-redux';
 //bootstrap
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, Alert } from 'react-bootstrap';
 
 export const SearchEngine = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,13 +38,16 @@ export const SearchEngine = () => {
           <Form />
         </Modal.Header>
         <Modal.Body className="py-2">
-          {!storeSearch?.loading && (
-            <ResultSearch
-              onHide={handleToggleModal}
-              response={storeSearch.lastSearch.response}
-              filter={storeSearch.lastSearch.filter}
-            />
-          )}
+          {!storeSearch?.loading &&
+            (storeSearch.lastSearch.response ? (
+              <ResultSearch
+                onHide={handleToggleModal}
+                response={storeSearch.lastSearch.response}
+                filter={storeSearch.lastSearch.filter}
+              />
+            ) : (
+              <Alert variant="danger">{t('search-engine.error')}</Alert>
+            ))}
         </Modal.Body>
       </Modal>
     </>

@@ -18,7 +18,8 @@
       "QUOTE": "Quote",
       "KILLER": "Killer"
     },
-    "details": "Details" 
+    "details": "Details",
+    "error": "No results found 💥, please try again"
   },
   "charactersPage": {
     "title": "List of characters"
